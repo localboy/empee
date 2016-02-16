@@ -22,6 +22,7 @@ class Account(models.Model):
     # nick_name = models.CharField(max_length=40)
     # email = models.EmailField(unique=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    position = models.CharField(max_length=40, default='New Member')
     phone = models.CharField(max_length=15)
     marital_status = models.CharField(max_length=1, choices=MARITAL_STATUS)
     gender = models.CharField(max_length=1, choices=GENDER)
@@ -35,11 +36,8 @@ class Account(models.Model):
 
 
 class SocialInfo(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='account_social')
     facebook = models.CharField(max_length=50)
     twitter = models.CharField(max_length=50)
     skype = models.CharField(max_length=50)
     bitbucket = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.user.username

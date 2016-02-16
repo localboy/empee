@@ -18,13 +18,20 @@ from django.contrib import admin
 
 from rest_framework import routers
 
-from users.views import AccountViewSet
+from .views import IndexView
+from users.views import AccountViewSet, Users
+from projects.views import ProjectViewSet
+from blog.views import PostViewSet
 
 router = routers.DefaultRouter()
 router.register(r'account', AccountViewSet)
+router.register(r'user', Users)
+router.register(r'project', ProjectViewSet)
+router.register(r'post', PostViewSet)
 
 urlpatterns = [
+    url(r'^$', IndexView.as_view(), name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
