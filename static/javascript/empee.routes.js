@@ -14,7 +14,11 @@
         .when('/test', {
             templateUrl: '/static/templates/test.html'
         })
-        .otherwise('/');
+        .when('/login', {
+            controller: 'LoginController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/login.html'
+        }).otherwise('/');
     }
 
     /*config.$inject = ['$stateProvider', '$urlRouterProvider'];

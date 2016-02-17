@@ -50,7 +50,13 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
-    ]
+    ],
+
+    # django.http.request.RawPostDataException: You cannot access body after reading from request's data stream
+
+    # 'FORM_METHOD_OVERRIDE': None,
+    # 'FORM_CONTENT_OVERRIDE': None,
+    # 'FORM_CONTENTTYPE_OVERRIDE': None
 }
 
 MIDDLEWARE_CLASSES = [
