@@ -1,21 +1,39 @@
-from rest_framework import serializers
+from rest_framework import serializers, permissions
 
 from django.contrib.auth.models import User
 
 from .models import Account, SocialInfo
 
 
-class AccountSer(serializers.ModelSerializer):
+class SocialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SocialInfo
+        fields = ('facebook', 'twitter', 'skype', 'bitbucket')
+
+
+class AccountSerializer(serializers.ModelSerializer):
+    # username = serializers.CharField(source='user.username')
+    # email = serializers.CharField(source='user.email')
+    social = SocialSerializer(many=True, source='account_social')
+    # s = serializers.SocialInfo.objects.all()
+
     class Meta:
         model = Account
+        fields = ('phone', 'marital_status', 'gender', 'date_of_birth', 'hobby', 'address', 'bio', 'social')
+
+
+# class AccountSer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Account
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # account = AccountSer
+    permission_class = permissions.IsAdminUser
+    account = AccountSerializer(source='user_account')
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'is_staff', 'password')
+        fields = ('id', 'username', 'email', 'is_staff', 'password', 'account')
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)
@@ -35,24 +53,6 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 
-class SocialSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SocialInfo
-        # fields = ('facebook', 'twitter', 'skype', 'bitbucket')
-
-
-class AccountSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(source='user.username')
-    email = serializers.CharField(source='user.email')
-    social = SocialSerializer(many=True, source='account_social')
-    # s = serializers.SocialInfo.objects.all()
-
-    class Meta:
-        model = Account
-        fields = ('phone', 'marital_status', 'gender', 'date_of_birth', 'hobby', 'address', 'bio', 'username', 'email', 'social')
-
-
-# class SocialSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = SocialInfo
-#         fields = ('facebook', 'twitter', 'skype', 'bitbucket')
+# class LoginSerializer(serializers.Serializer):
+#     email = serializers.EmailField()
+#     password = serializers.CharField()

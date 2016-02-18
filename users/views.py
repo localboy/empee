@@ -3,7 +3,7 @@ import json
 
 # from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 from rest_framework import generics, viewsets, status, views, serializers
 from rest_framework.response import Response
@@ -25,6 +25,11 @@ class AccountViewSet(viewsets.ModelViewSet):
     serializer_class = AccountSerializer
 
 
+class UserView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
 class LoginView(views.APIView):
     # queryset = User.objects.all()
     #
@@ -39,7 +44,7 @@ class LoginView(views.APIView):
         # email = data.get('email', None)
         # is_staff = data.get('is_staff', None)
 
-        account = authenticate(userame=username, password=password)
+        account = authenticate(username=username, password=password)
 
         if account is not None:
             if account.is_active:
@@ -59,3 +64,20 @@ class LoginView(views.APIView):
                 'message': 'Username/password incorrect.'
             }, status=status.HTTP_401_UNAUTHORIZED)
 
+
+# class MeLogin(views.APIView):
+#
+#     permission_classes = ()
+#
+#     def post(self, request, format=None):
+#         serializer = LoginSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=True):
+#             user = authenticate(username=serializer.data['email'], password=serializer.data['password'])
+#             if user is not None:
+#                 if user.is_active:
+#                     login(request, user)
+#                     return Response()
+#                 else:
+#                     raise serializers.ValidationError('Please activate account.')
+#             else:
+#                 raise serializers.ValidationError('Invalid login credentials. Try again.')
