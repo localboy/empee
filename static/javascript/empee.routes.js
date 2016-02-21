@@ -9,10 +9,13 @@
 
     function config($routeProvider){
         $routeProvider.when('/', {
-            templateUrl: 'index.html'
+            templateUrl: '/static/templates/home.html'
         })
         .when('/test', {
             templateUrl: '/static/templates/test.html'
+        })
+        .when('/dashboard', {
+            templateUrl: '/static/templates/dashboard.html'
         })
         .when('/login', {
             controller: 'LoginController',

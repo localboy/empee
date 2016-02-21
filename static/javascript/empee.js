@@ -31,7 +31,8 @@
 
 
     angular
-        .module('empee').run(function($http) {
-        $http.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('empee.token')
+        .module('empee')
+        .run(function($http) {
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('empee.token');
     });
 })();
