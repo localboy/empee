@@ -10,29 +10,35 @@
     function Authentication($cookies, $http, $scope) {
         var Authentication = {
             isAuthenticated: isAuthenticated,
-            login: login
+            login: login,
+            logout: logout
         }
 
         return Authentication;
 
         function login (username, password) {
-//            return $http.post('/api-token-auth/', {
-            return $http.post('/api/login/', {
+            return $http.post('/api-token-auth/', {
+//            return $http.post('/api/login/', {
                 username: username, password: password
             }).then(loginSuccessFn, loginErrorFn);
 
             function loginSuccessFn (data, status, headers, config, response) {
                 window.location = '#/dashboard';
-//                localStorage.setItem('empee.token',data.data.token);
-//                $http.defaults.headers.common.Authorization = 'Bearer ' + response.token
+                localStorage.setItem('empee.token',data.data.token);
+                $http.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('empee.token');
 //                console.log(localStorage.getItem('empee.token'));
 //                console.log(data.data.token);
-                  console.log(data.data);
+//                  console.log(data.data);
             }
 
             function loginErrorFn (data, status, headers, config) {
                 console.error('Epic failure!');
             }
+        }
+
+        function logout() {
+            localStorage.removeItem('empee.token');
+            window.location = '/';
         }
 
         /*function login (username, password) {
@@ -54,7 +60,7 @@
         }*/
 
         function isAuthenticated() {
-
+            return localStorage.getItem('empee.token')!=null
         }
     }
 })();

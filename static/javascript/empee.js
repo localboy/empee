@@ -4,7 +4,11 @@
     angular
         .module('empee', [
             'empee.authentication',
-            'empee.routes'
+            'empee.routes',
+            'empee.layout',
+            'empee.profile',
+            'empee.projects'
+//            'empee.dashboard'
 //            'empee.config'
         ]);
 
@@ -29,10 +33,9 @@
         $http.defaults.xsrfHeaderName = 'X-CSRFToken';
     }
 
-
-    angular
+    /*angular
         .module('empee')
         .run(function($http) {
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('empee.token');
-    });
+    });*/
 })();

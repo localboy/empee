@@ -8,11 +8,15 @@
     config.$inject = ['$routeProvider'];
 
     function config($routeProvider){
-        $routeProvider.when('/', {
-            templateUrl: '/static/templates/home.html'
-        })
+        $routeProvider
+        /*.when('/', {
+            templateUrl: '/static/templates/login.html'
+        })*/
         .when('/test', {
             templateUrl: '/static/templates/test.html'
+        })
+        .when('/profile', {
+            templateUrl: '/static/templates/profile.html'
         })
         .when('/dashboard', {
             templateUrl: '/static/templates/dashboard.html'
@@ -21,7 +25,11 @@
             controller: 'LoginController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/login.html'
-        }).otherwise('/');
+        }).when('/project', {
+            controller: 'ProjectController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/projects.html'
+        }).otherwise('/login');
     }
 
     /*config.$inject = ['$stateProvider', '$urlRouterProvider'];

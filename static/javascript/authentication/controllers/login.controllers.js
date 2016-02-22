@@ -16,12 +16,15 @@
 
         function active() {
             if (Authentication.isAuthenticated()) {
-                $location.url('/');
+//                $location.url('/');
+                window.location = '#/dashboard';
+                console.log('Authenticated');
             }
         }
 
         function login() {
             Authentication.login(vm.username, vm.password);
         }
+
     }
 })();
