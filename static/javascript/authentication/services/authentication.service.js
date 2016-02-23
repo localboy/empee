@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('empee.authentication.services')
+        .module('empee.authentication.services',[])
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$cookies', '$http'];
+    Authentication.$inject = ['$http'];
 
-    function Authentication($cookies, $http, $scope) {
+    function Authentication($http) {
         var Authentication = {
             isAuthenticated: isAuthenticated,
             login: login,
@@ -16,19 +16,24 @@
 
         return Authentication;
 
-        function login (username, password) {
+        function login (username, password, callback) {
             return $http.post('/api-token-auth/', {
 //            return $http.post('/api/login/', {
                 username: username, password: password
-            }).then(loginSuccessFn, loginErrorFn);
+            }).then(loginSuccessFn(callback), loginErrorFn);
 
-            function loginSuccessFn (data, status, headers, config, response) {
-                window.location = '#/dashboard';
-                localStorage.setItem('empee.token',data.data.token);
-                $http.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('empee.token');
-//                console.log(localStorage.getItem('empee.token'));
-//                console.log(data.data.token);
-//                  console.log(data.data);
+            function loginSuccessFn (callback) {
+
+
+                // $http.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('empee.token');
+                return function (data, status, headers, config, response, $state) {
+                    localStorage.setItem('empee.token',data.data.token);
+                    $http.defaults.headers.common['Authorization'] = 'Bearer ' + data.data.token;
+                    if (typeof callback !== 'undefined') {
+                        callback();
+                    }
+                }
+
             }
 
             function loginErrorFn (data, status, headers, config) {

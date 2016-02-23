@@ -40,13 +40,13 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" class="waves-effect waves-light">Link <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#" class="waves-effect waves-light">Link</a></li>
+                        <!--<li><a href="#" class="waves-effect waves-light">Link <span class="sr-only">(current)</span></a></li>-->
+                        <li><a ui-sref=".project" class="waves-effect waves-light">Projects</a></li>
 
                         <li class="dropdown">
                             <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/profile">Profile</a></li>
+                                <li><a ui-sref=".profile">Profile</a></li>
                                 <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li>
                             </ul>
                         </li>

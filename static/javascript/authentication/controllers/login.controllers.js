@@ -5,9 +5,9 @@
         .module('empee.authentication.controllers')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', '$scope', 'Authentication'];
+    LoginController.$inject = ['$location', '$scope', '$state', 'Authentication'];
 
-    function LoginController($scope, $location, Authentication) {
+    function LoginController($scope, $location, $state, Authentication) {
         var vm = this;
 
         vm.login = login;
@@ -16,14 +16,17 @@
 
         function active() {
             if (Authentication.isAuthenticated()) {
-//                $location.url('/');
-                window.location = '#/dashboard';
-                console.log('Authenticated');
+                $state.go('dashboard');
             }
         }
 
         function login() {
-            Authentication.login(vm.username, vm.password);
+            Authentication.login(vm.username, vm.password, function() {
+                $state.go('dashboard');
+            });
+            /*if (Authentication.isAuthenticated()) {
+                $state.go('dashboard');
+            }*/
         }
 
     }

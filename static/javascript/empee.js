@@ -3,21 +3,14 @@
 
     angular
         .module('empee', [
-            'empee.authentication',
             'empee.routes',
+            'empee.authentication',
+//            'empee.config',
             'empee.layout',
             'empee.profile',
             'empee.projects'
-//            'empee.dashboard'
-//            'empee.config'
+
         ]);
-
-
-//    angular
-//        .module('empee.routes', ['ui.router']);
-
-    angular
-        .module('empee.routes', ['ngRoute']);
 
     /*angular
         .module('empee.config', []);*/

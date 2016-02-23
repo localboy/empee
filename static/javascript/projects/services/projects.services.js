@@ -8,23 +8,22 @@
     Project.$inject = ['$http']
 
     function Project($http) {
-        var Projects = {
+        var Project = {
             get: get,
             all: all
         };
 
         return Project;
 
-        function all() {
-            return $http.get('/api/projects/').then(getSuccessFn, getErrorFn);
+        function all(callback) {
+            $http.get('/api/project/').then(callback, getErrorFn);
 
-            function getSuccessFn(data) {
-                return projects = data;
-                console.log(data);
-                alert(data);
-            }
+            /*function getSuccessFn(data, status, headers, config, response) {
+                return data;
+                //console.log(data);
+            }*/
 
-            function getErrorFn (response) {
+            function getErrorFn (data, status, headers, config, response) {
                 console.log('Error');
             }
         }

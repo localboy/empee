@@ -1,12 +1,13 @@
 
-<div ng-controller="ProfileController as vm">
+<div ng-controller="DashboardController as vm">
 
       <div class="row">
         <div ng-include="'static/templates/sidebar.html'"></div>
         <div class="col-sm-9  col-md-10  main">
             <div ng-include="'static/templates/navbar.html'"></div>
+          <div ui-view>
           <h1 class="page-header">Dashboard</h1>
-
+            <h2>{{ vm.greeting }}</h2>
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
@@ -158,6 +159,7 @@
               </tbody>
             </table>
           </div>
+            </div>
         </div>
       </div>
     </div>
