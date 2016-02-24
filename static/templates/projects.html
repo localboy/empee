@@ -1,7 +1,34 @@
 <div class="well" ng-controller="ProjectController as vm">
-    <h2>This is projects</h2>
-    {{ vm.projects }}
-    <div ng-repeat="project in vm.projects">
-        <h3>{{ project }}</h3>
+    <div class="row">
+    <h2>Projects list</h2>
+    <!--{{ vm.projects }}-->
+    <!--<div ng-repeat="project in vm.projects">
+        <h3>{{ project.title }}</h3>
+        <P>{{ project.description }}</P>-->
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="project in vm.projects">
+                <!--<td>{{ member.id }}</td>-->
+                <td>{{ project.id }}</td>
+                <td>{{ project.title }}</td>
+                <td><a ui-sref=".projectDetail({ projectID: project.id })"><button type="button" class="btn btn-link">View</button></a></td>
+            </tr>
+        </table>
+
+            <!--<h3>Member of the project</h3>
+            <div class="col-lg-4 col-sm-4 text-center" ng-repeat="member in project.member">
+                <img class="img-circle img-responsive img-center hoverable" src="static/img/user.png" alt="">
+                <h3>John Smith
+                            <small>{{ member.role }}</small>
+                        </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+        </div>-->
     </div>
 </div>
+<div ui-view></div>

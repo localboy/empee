@@ -7,6 +7,7 @@
             'empee.authentication',
 //            'empee.config',
             'empee.layout',
+            'empee.posts',
             'empee.profile',
             'empee.projects'
 

@@ -1,0 +1,30 @@
+<div class="well" ng-controller="ProjectDetailController as vm">
+    <div class="row">
+    <!--<h2>This is projects</h2>-->
+    <!--{{ vm.projects }}-->
+
+        <h3>{{ vm.projects.title }}</h3>
+        <P>{{ vm.projects.description }}</P>
+        <!--<table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Role</th>
+            </tr>
+            <tr ng-repeat="member in project.member">
+                &lt;!&ndash;<td>{{ member.id }}</td>&ndash;&gt;
+                <td>{{ member.role }}</td>
+                <td>{{ member.role }}</td>
+            </tr>
+        </table>-->
+
+            <h4>Member of the project</h4>
+            <div class="col-lg-4 col-sm-4 text-center" ng-repeat="member in vm.projects.member">
+                <img class="img-circle img-responsive img-center hoverable" src="static/img/user.png" alt="">
+                <h3>John Smith
+                            <small>{{ member.role }}</small>
+                        </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+        </div>
+
+</div>

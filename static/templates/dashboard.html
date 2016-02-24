@@ -7,8 +7,28 @@
             <div ng-include="'static/templates/navbar.html'"></div>
           <div ui-view>
           <h1 class="page-header">Dashboard</h1>
-            <h2>{{ vm.greeting }}</h2>
-          <div class="row placeholders">
+            <!--<h2>{{ vm.greeting }}</h2>-->
+
+            <!--<div ng-controller="PostController as vm">-->
+              <!--<div class="well" ng-repeat="post in vm.posts">
+                <h3>{{ post.title }}</h3>
+              </div>-->
+            <div class="panel-group" ng-repeat="post in vm.posts">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3"><img class="img img-thumbnail" src="/static/img/user.png" /></div>
+                  <div class="col-md-9">
+                    <h3>{{ post.title }}</h3>
+                    <p class="lead">{{ post.description }}<a ui-sref=".postDetail({postID: post.id})"><button class="btn btn-default">Read</button></a></p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <!--</div>-->
+
+          <!--<div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
@@ -29,7 +49,7 @@
               <h4>Label</h4>
               <span class="text-muted">Something else</span>
             </div>
-          </div>
+          </div>-->
 
           <h2 class="sub-header">Section title</h2>
           <div class="table-responsive">

@@ -27,6 +27,12 @@
                 controller: 'DashboardController'
 
             })
+            .state('dashboard.postDetail', {
+                url: '/post/:postID',
+                templateUrl: '/static/templates/post.detail.html',
+                controllerAs: 'vm',
+                controller: 'DashboardController'
+            })
             .state('dashboard.profile', {
                 url: '/profile',
                 templateUrl: '/static/templates/profile.html'
@@ -36,6 +42,12 @@
                 templateUrl: '/static/templates/projects.html',
                 controllerAs: 'vm',
                 controller: 'ProjectController'
+            })
+            .state('dashboard.project.projectDetail', {
+                url: '/project/:projectID',
+                templateUrl: '/static/templates/project_detail.html',
+                controllerAs: 'vm',
+                controller: 'ProjectDetailController'
             })
             .state('test', {
                 url: '/test',

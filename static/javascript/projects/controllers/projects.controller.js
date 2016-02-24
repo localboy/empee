@@ -5,15 +5,15 @@
         .module('empee.projects.controllers')
         .controller('ProjectController', ProjectController)
 
-    ProjectController.$inject = ['$http', 'Project'];
+    ProjectController.$inject = ['Project'];
 
-    function ProjectController($http, Project) {
+    function ProjectController(Project) {
         var vm = this;
         vm.projects = "Bla";
 
         Project.all(function(data) {
             vm.projects = data.data;
-            window.console.log(vm.projects);
+//            window.console.log(vm.projects);
         });
         /*function projects() {
             return Project.all();
@@ -30,4 +30,5 @@
             });
         }*/
     }
+
 })();

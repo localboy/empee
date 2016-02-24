@@ -28,8 +28,12 @@
             }
         }
 
-        function get() {
+        function get(id, callback) {
+            return $http.get('/api/project/' + id + '/').then(callback, getErrorFn);
 
+            function getErrorFn (data, status, headers, config, response) {
+                console.log('Error');
+            }
         }
     }
 })();
