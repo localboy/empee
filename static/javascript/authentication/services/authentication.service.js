@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('empee.authentication.services',[])
+        .module('empee.authentication.services')
         .factory('Authentication', Authentication);
 
     Authentication.$inject = ['$http'];
@@ -24,8 +24,6 @@
 
             function loginSuccessFn (callback) {
 
-
-                // $http.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('empee.token');
                 return function (data, status, headers, config, response, $state) {
                     localStorage.setItem('empee.token',data.data.token);
                     $http.defaults.headers.common['Authorization'] = 'Bearer ' + data.data.token;
@@ -43,26 +41,7 @@
 
         function logout() {
             localStorage.removeItem('empee.token');
-            window.location = '/';
         }
-
-        /*function login (username, password) {
-            $http
-              .post('/api-token-auth/', {username: username, password: password})
-              .then(function(response) {
-                // assumes if ok, response is an object with some data, if not, a string with error
-                // customize according to your api
-                if ( !response.account ) {
-                  authMsg = 'Incorrect credentials.';
-                }else{
-                    localStorage.setItem('empee.token',response.token);
-                    $http.defaults.headers.common.Authorization = 'Bearer ' + response.token
-                    $state.go('dashboard');
-                }
-              }, function(x) {
-                authMsg = 'Server Request Error';
-              });
-        }*/
 
         function isAuthenticated() {
             return localStorage.getItem('empee.token')!=null

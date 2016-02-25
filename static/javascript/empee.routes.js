@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('empee.routes', ['ui.router'])
+        .module('empee.routes')
         .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
