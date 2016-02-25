@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="empee">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!--<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">-->
+    <link href="http://mdbootstrap.com/mdbcdn/mdb.min.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"  rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+    <script  src="bower_components/jquery/dist/jquery.js"></script>
+     <script  src="http://mdbootstrap.com/mdbcdn/mdb.min.js"></script>
+    <script  src="bower_components/angular/angular.js"></script>
+    <script  src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script  src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script  src="bower_components/jquery/dist/jquery.js"></script>
+    <script  src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script  src="js/empee.js"></script>
+    <script  src="js/empee.routes.js"></script>
+    <script  src="js/authentication/empee.authentication.js"></script>
+    <script  src="js/authentication/services/authentication.service.js"></script>
+    <script  src="js/authentication/controllers/login.controllers.js"></script>
+
+    <script  src="js/layout/layout.module.js"></script>
+    <script  src="js/layout/controllers/navbar.controller.js"></script>
+    <script  src="js/layout/controllers/dashboard.controller.js"></script>
+    <script  src="js/profile/profile.module.js"></script>
+    <script  src="js/profile/services/profile.services.js"></script>
+    <script  src="js/profile/controllers/profile.controller.js"></script>
+    <script  src="js/projects/projects.module.js"></script>
+    <script  src="js/projects/controllers/projects.controller.js"></script>
+    <script  src="js/projects/controllers/projects.detail.controller.js"></script>
+    <script  src="js/projects/services/projects.services.js"></script>
+    <script  src="js/post/post.module.js"></script>
+    <script  src="js/post/services/posts.service.js"></script>
+</body>
+</html>
