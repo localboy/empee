@@ -5,5 +5,5 @@
         .module('empee.layout', ['empee.layout.controllers']);
 
     angular
-        .module('empee.layout.controllers', []);
+        .module('empee.layout.controllers', ['angular-jwt']);
 })();

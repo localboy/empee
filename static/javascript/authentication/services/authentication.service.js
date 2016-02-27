@@ -2,32 +2,31 @@
     'use strict';
 
     angular
-        .module('empee.authentication.services',[])
+        .module('empee.authentication.services',['angular-jwt'])
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$http'];
+    Authentication.$inject = ['$http', 'jwtHelper'];
 
-    function Authentication($http) {
+    function Authentication($http, jwtHelper) {
         var Authentication = {
             isAuthenticated: isAuthenticated,
             login: login,
-            logout: logout
+            logout: logout,
+            authenticatedAccount: authenticatedAccount
         }
 
         return Authentication;
 
         function login (username, password, callback) {
             return $http.post('/api-token-auth/', {
-//            return $http.post('/api/login/', {
                 username: username, password: password
             }).then(loginSuccessFn(callback), loginErrorFn);
 
             function loginSuccessFn (callback) {
-
-
-                // $http.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('empee.token');
-                return function (data, status, headers, config, response, $state) {
+                return function (data, status, headers, config, response) {
+                    var userid = jwtHelper.decodeToken(data.data.token);
                     localStorage.setItem('empee.token',data.data.token);
+//                    console.log(userid);
                     $http.defaults.headers.common['Authorization'] = 'Bearer ' + data.data.token;
                     if (typeof callback !== 'undefined') {
                         callback();
@@ -39,6 +38,17 @@
             function loginErrorFn (data, status, headers, config) {
                 console.error('Epic failure!');
             }
+        }
+
+        function authenticatedAccount() {
+            var token = localStorage.getItem('empee.token');
+            var userid = jwtHelper.decodeToken(token).user_id;
+
+            $http.get('/api/user/'+userid).then(function(response){
+                if(response.status === 200){
+                    user_obj = response.data;
+                }
+            });
         }
 
         function logout() {

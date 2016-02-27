@@ -22,6 +22,7 @@
 
         function login() {
             Authentication.login(vm.username, vm.password, function() {
+//                console.log(localStorage.getItem('empee.token'));
                 $state.go('dashboard');
             });
             /*if (Authentication.isAuthenticated()) {
