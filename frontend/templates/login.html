@@ -1,15 +1,28 @@
-<form class="form-signin" ng-submit="vm.login()">
-    <h3 class="form-signin-heading">Please sign in</h3>
-    <label for="inputEmail" class="sr-only">Username</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="Enter Username" ng-model="vm.username" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Enter Password" ng-model="vm.password" required>
-    <div class="checkbox">
-      <!--<label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>-->
+<div class="main-page login-page ">
+    <h3 class="title1">SignIn Page</h3>
+    <div class="widget-shadow">
+        <div class="login-top">
+            <h4>Welcome to Skylark Empee ! </h4>
+        </div>
+        <div class="login-body">
+            <form ng-submit="vm.login()">
+                <input type="text" class="user" name="email" placeholder="Enter your username" ng-model="vm.username" required autofocus>
+                <input type="password" name="password" class="lock" placeholder="password" ng-model="vm.password" required >
+                <input type="submit" name="Sign In" value="Sign In">
+                <div class="forgot-grid">
+                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
+                    <div class="forgot">
+                        <a href="#">forgot password?</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <button class="btn btn-primary waves-effect waves-light" type="submit">Sign in</button>
-    <!--<button type="submit" class="btn btn-default btn-block waves-effect waves-light">Sign in</button>-->
-        <!--<button type="button" class="btn btn-default btn-block">Button 2</button>-->
-</form>
+
+    <div class="login-page-bottom">
+        <h5> - OR -</h5>
+        <div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
+        <div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
+    </div>
+</div>

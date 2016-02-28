@@ -1,185 +1,125 @@
+    <div class="main-content">
+                <!--left-fixed -navigation-->
+                <!-- <ng-include  src="'templates/blocks/sidebar.html'"></ng-include> -->
+                <div class=" sidebar" role="navigation">
+                    <div class="navbar-collapse">
+                        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+                            <ul class="nav" id="side-menu">
+                                <li>
+                                    <a href="index.html"><i class="fa fa-home nav_icon"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-table nav_icon"></i>News Feed</a>
+                                </li>
+                                <li class="">
+                                    <a href="#"><i class="fa fa-book nav_icon"></i>Projects</a>
+                                    <!-- /nav-second-level -->
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-th-large nav_icon"></i>Users</a>
+                                </li>
 
-<div ng-controller="DashboardController as vm">
-
-      <div class="row">
-        <div ng-include="'templates/sidebar.html'"></div>
-        <div class="col-sm-9  col-md-10  main">
-            <div ng-include="'templates/navbar.html'"></div>
-          <div ui-view>
-          <h1 class="page-header">Dashboard</h1>
-            <!--<h2>{{ vm.greeting }}</h2>-->
-
-            <!--<div ng-controller="PostController as vm">-->
-              <!--<div class="well" ng-repeat="post in vm.posts">
-                <h3>{{ post.title }}</h3>
-              </div>-->
-            <div class="panel-group" ng-repeat="post in vm.posts">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-3"><img class="img img-thumbnail" src="img/user.png" /></div>
-                  <div class="col-md-9">
-                    <h3>{{ post.title }}</h3>
-                    <p class="lead">{{ post.description }}<a ui-sref=".postDetail({postID: post.id})"><button class="btn btn-default">Read</button></a></p>
-                  </div>
+                                <li>
+                                    <a href="#"><i class="fa fa-table nav_icon"></i> Teams</a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"> </div>
+                            <!-- //sidebar-collapse -->
+                        </nav>
+                    </div>
                 </div>
+                <!--left-fixed -navigation-->
+
+
+                <!-- header -->
+                <!-- <ng-include  src="'templates/blocks/header.html'"></ng-include> -->
+                <!-- header-starts -->
+                <div class="sticky-header header-section ">
+                    <div class="header-left">
+                        <!--toggle button start-->
+                        <button id="showLeftPush"><i class="fa fa-bars"></i></button>
+                        <!--toggle button end-->
+                        <!--logo -->
+                        <div class="logo">
+                            <a href="index.html">
+                                <h1>Empee</h1>
+                                <span>Skylarksoft</span>
+                            </a>
+                        </div>
+                        <!--//logo-->
+                        <!--search-box-->
+                        <div class="search-box">
+                            <form class="input">
+                                <input class="sb-search-input input__field--madoka" placeholder="Search..." type="search" id="input-31" />
+                                <label class="input__label" for="input-31">
+                                    <svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+                                        <path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
+                                    </svg>
+                                </label>
+                            </form>
+                        </div><!--//end-search-box-->
+                        <div class="clearfix"> </div>
+                    </div>
+
+                        <!--notification menu end -->
+                        <div class="profile_details" ng-controller="NavbarController as vm">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile_img">
+                                            <span class="prfil-img"><img src="images/a.png" alt=""> </span>
+                                            <div class="user-name">
+                                                <p>Wikolia</p>
+                                                <span>Administrator</span>
+                                            </div>
+                                            <i class="fa fa-angle-down lnr"></i>
+                                            <i class="fa fa-angle-up lnr"></i>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu">
+                                        <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
+                                        <li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
+                                        <li> <a href="javascript:void(0)" ng-click="vm.logout()"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
                 </div>
-              </div>
-            </div>
-            <!--</div>-->
+                <!-- //header-ends -->
 
-          <!--<div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>-->
 
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <!-- main content start-->
+                <div id="page-wrapper">
+                    <div class="main-page">
+                        <!-- ui-view -->
+                      <div ng-controller="DashboardController as vm">
+                            <div ui-view>
+                                <h1 class="page-header">Dashboard</h1>
+                                <div class="panel-group" ng-repeat="post in vm.posts">
+                                  <div class="panel panel-default">
+                                    <div class="panel-body">
+                                    <div class="row">
+                                      <div class="col-md-3"><img class="img img-thumbnail" src="img/user.png" /></div>
+                                      <div class="col-md-9">
+                                        <h3>{{ post.title }}</h3>
+                                        <p class="lead">{{ post.description }}<a ui-sref=".postDetail({postID: post.id})"><button class="btn btn-default">Read</button></a></p>
+                                      </div>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- Footer -->
+                <ng-include  src="'templates/blocks/footer.html'"></ng-include>
+
             </div>
-        </div>
-      </div>
     </div>
+
+
