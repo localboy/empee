@@ -19,7 +19,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ('phone', 'marital_status', 'gender', 'date_of_birth', 'hobby', 'address', 'bio', 'social')
+        fields = ('user', 'phone', 'marital_status', 'gender', 'date_of_birth', 'hobby', 'address', 'bio', 'social')
 
 
 # class AccountSer(serializers.ModelSerializer):
@@ -33,7 +33,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'is_staff', 'password', 'account')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'is_staff', 'password', 'account')
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)

@@ -19,8 +19,8 @@
             return $http.get('api/user/' + username + '/');
         }
 
-        function update() {
-
+        function update(profile) {
+            return $http.put('/api/user/' + profile.username + '/'. profile);
         }
     }
 })();

@@ -1,3 +1,4 @@
-.idea/**
+*.pyc
+.idea/
 db.sqlite3
 /static/bower_components/

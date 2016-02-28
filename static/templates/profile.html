@@ -1,7 +1,20 @@
-<div class="well">
-    <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Edit Profile</button>
-
+<div class="well" ng-controller="ProfileController as vm">
+        <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Edit Profile</button>
+        <div class="profile" ng-show="vm.profile">
+      <div class="jumbotron profile__header">
+        <p class="profile__username">{{ vm.profile.username }}</p>
+        <!--<p class="profile__username">{{ vm.profile.password }}</p>-->
+        <p class="profile__username">{{ vm.profile.email }}</p>
+        <p class="profile__username">{{ vm.profile.first_name }}</p>
+        <p class="profile__username">{{ vm.profile.last_name }}</p>
+        <p class="profile__username">{{ vm.profile.account.phone }}</p>
+        <p class="profile__username">{{ vm.profile.account.date_of_birth }}</p>
+        <p class="profile__username">{{ vm.profile.account.address }}</p>
+        <!--<p class="profile__username">{{ vm.profile.username }}</p>-->
+        <!--<p class="profile__tagline">{{ vm.profile.tagline }}</p>-->
+      </div>
+    </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -16,11 +29,11 @@
           <form>
       <div class="row">
         <div class="input-field col-md-6">
-          <input id="first_name" type="text" class="validate">
+          <input id="first_name" type="text" class="validate" ng-model="vm.profile.first_name">
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col-md-6">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" type="text" class="validate" ng-model="vm.profile.last_name">
           <label for="last_name">Last Name</label>
         </div>
       </div>
@@ -32,19 +45,19 @@
       </div>-->
       <div class="row">
         <div class="input-field col-md-12">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" class="validate" ng-model="vm.profile.password">
           <label for="password">Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col-md-12">
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" ng-model="vm.profile.email">
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col-md-6">
-          <input id="phone" type="text" class="validate">
+          <input id="phone" type="text" class="validate" ng-model="vm.profile.account.phone">
           <label for="phone">Phone Number</label>
         </div>
         <div class="input-field col-md-6">
@@ -54,7 +67,7 @@
       </div>
       <div class="row">
         <div class="input-field col-md-12">
-          <textarea id="textarea" class="materialize-textarea"></textarea>
+          <textarea id="textarea" class="materialize-textarea" ng-model="vm.profile.account.address"></textarea>
           <label for="textarea">Address</label>
         </div>
       </div>
