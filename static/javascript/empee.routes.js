@@ -35,7 +35,15 @@
             })
             .state('dashboard.profile', {
                 url: '/profile',
-                templateUrl: '/static/templates/profile.html'
+                templateUrl: '/static/templates/profile.html',
+                controllerAs: 'vm',
+                controller: 'ProfileController'
+            })
+            .state('dashboard.settings', {
+                url: '/profile-settings',
+                templateUrl: '/static/templates/profile-settings.html',
+                controllerAs: 'vm',
+                controller: 'ProfileSettingsController'
             })
             .state('dashboard.project', {
                 url: '/projects',
