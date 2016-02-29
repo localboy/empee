@@ -5,11 +5,10 @@
         .module('empee.authentication.services')
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$http'];
+    Authentication.$inject = ['$http', 'empee.config'];
 
-    function Authentication($http) {
-        var base_url = "http://127.0.0.1:8000";
-
+    function Authentication($http, config) {
+        var API = config.baseUrl;
         var Authentication = {
             isAuthenticated: isAuthenticated,
             login: login,
@@ -18,7 +17,7 @@
         return Authentication;
 
         function login (username, password, callback) {
-            return $http.post(base_url + '/api-token-auth/', {
+            return $http.post(API + '/api-token-auth/', {
 //            return $http.post('/api/login/', {
                 username: username, password: password
             }).then(loginSuccessFn(callback), loginErrorFn);

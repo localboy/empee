@@ -1,22 +1,7 @@
-<div class="well" ng-controller="ProjectDetailController as vm">
-    <div class="row">
-    <!--<h2>This is projects</h2>-->
-    <!--{{ vm.projects }}-->
-
+<div class="col-md-8 col-md-offset-2" ng-controller="ProjectDetailController as vm">
+    <!--<div class="row">
         <h3>{{ vm.projects.title }}</h3>
         <P>{{ vm.projects.description }}</P>
-        <!--<table class="table table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Role</th>
-            </tr>
-            <tr ng-repeat="member in project.member">
-                &lt;!&ndash;<td>{{ member.id }}</td>&ndash;&gt;
-                <td>{{ member.role }}</td>
-                <td>{{ member.role }}</td>
-            </tr>
-        </table>-->
-
             <h4>Member of the project</h4>
             <div class="col-lg-4 col-sm-4 text-center" ng-repeat="member in vm.projects.member">
                 <img class="img-circle img-responsive img-center hoverable" src="static/img/user.png" alt="">
@@ -25,6 +10,28 @@
                         </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               </div>
-        </div>
+        </div>-->
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">{{ vm.projects.title }}</div>
+      <div class="panel-body">
+        <p>{{ vm.projects.description }}</p>
+      </div>
+      <!-- Table -->
+      <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+        <tr ng-repeat="member in vm.projects.member">
+          <td>{{ $index + 1 }}</td>
+          <td>{{ member.user }}</td>
+          <td>{{ member.role }}</td>
+        </tr>
+      </table>
+    </div>
+
 
 </div>

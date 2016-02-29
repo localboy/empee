@@ -6,13 +6,13 @@
                         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                             <ul class="nav" id="side-menu">
                                 <li>
-                                    <a href="index.html"><i class="fa fa-home nav_icon"></i>Dashboard</a>
+                                    <a ui-sref="dashboard"><i class="fa fa-home nav_icon"></i>Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table nav_icon"></i>News Feed</a>
+                                    <a ui-sref=".post"><i class="fa fa-table nav_icon"></i>News Feed</a>
                                 </li>
-                                <li class="">
-                                    <a href="#"><i class="fa fa-book nav_icon"></i>Projects</a>
+                                <li>
+                                    <a ui-sref=".project"><i class="fa fa-book nav_icon"></i>Projects</a>
                                     <!-- /nav-second-level -->
                                 </li>
                                 <li>
@@ -69,7 +69,7 @@
                                         <div class="profile_img">
                                             <span class="prfil-img"><img src="images/user-50x50.png" alt=""> </span>
                                             <div class="user-name">
-                                                <p>Wikolia</p>
+                                                <p>{{ vm.username }}</p>
                                                 <span>Administrator</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -79,7 +79,7 @@
                                     </a>
                                     <ul class="dropdown-menu drp-mnu">
                                         <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
-                                        <li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
+                                        <li> <a ui-sref=".profile"><i class="fa fa-user"></i> Profile</a> </li>
                                         <li> <a href="javascript:void(0)" ng-click="vm.logout()"><i class="fa fa-sign-out"></i> Logout</a> </li>
                                     </ul>
                                 </li>
@@ -88,7 +88,7 @@
                         <div class="clearfix"> </div>
                     </div>
                     <div class="clearfix"> </div>
-                </div>
+                <!--</div>-->
                 <!-- //header-ends -->
 
 
@@ -96,30 +96,60 @@
                 <div id="page-wrapper">
                     <div class="main-page">
                         <!-- ui-view -->
-                      <div ng-controller="DashboardController as vm">
-                            <div ui-view>
-                                <h1 class="page-header">Dashboard</h1>
-                                <div class="panel-group" ng-repeat="post in vm.posts">
-                                  <div class="panel panel-default">
-                                    <div class="panel-body">
-                                    <div class="row">
-                                      <div class="col-md-3"><img class="img img-thumbnail" src="img/user.png" /></div>
-                                      <div class="col-md-9">
-                                        <h3>{{ post.title }}</h3>
-                                        <p class="lead">{{ post.description }}<a ui-sref=".postDetail({postID: post.id})"><button class="btn btn-default">Read</button></a></p>
+                          <div ng-controller="DashboardController as vm">
+                              <div class="row">
+                                <div ui-view>
+                                    <h1 class="lead">Dashboard</h1>
+
+                                    <!--<div class="panel-group" ng-repeat="post in vm.posts">
+                                      <div class="panel panel-default">
+                                        <div class="panel-body">
+                                        <div class="row">
+                                          <div class="col-md-3"><img class="img img-thumbnail" src="img/user.png" /></div>
+                                          <div class="col-md-9">
+                                            <h3>{{ post.title }}</h3>
+                                            <p class="lead">{{ post.description }}<a ui-sref=".postDetail({postID: post.id})"><button class="btn btn-default">Read</button></a></p>
+                                          </div>
+                                        </div>
+                                        </div>
                                       </div>
+                                    </div>-->
+                                        <div ng-include="'templates/posts.html'"></div>
+                                        <div class="col-md-4">
+                                            <div class="panel panel-primary"ng-controller="ProjectController as vm">
+                                              <div class="panel-heading">Project Information</div>
+                                              <div class="panel-body">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>Title</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr ng-repeat="project in vm.projects">
+                                                        <!--<td>{{ member.id }}</td>-->
+                                                        <td>{{ project.id }}</td>
+                                                        <td>{{ project.title }}</td>
+                                                        <td><a ui-sref=".projectDetail({ projectID: project.id })"><button type="button" class="btn btn-link">View</button></a></td>
+                                                    </tr>
+                                                </table>
+                                              </div>
+                                            </div>
+                                            <div class="panel panel-success">
+                                              <div class="panel-heading">Team Information</div>
+                                              <div class="panel-body">
+                                                Panel content
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    </div>
-                                  </div>
                                 </div>
-                            </div>
-                      </div>
+                          </div>
                     </div>
                 </div>
                 <!-- Footer -->
                 <ng-include  src="'templates/blocks/footer.html'"></ng-include>
 
-            </div>
     </div>
+
 
 

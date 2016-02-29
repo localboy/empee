@@ -5,10 +5,10 @@
         .module('empee.posts.services')
         .factory('Post', Post);
 
-    Post.$inject = ['$http'];
+    Post.$inject = ['$http', 'empee.config'];
 
-    function Post($http) {
-        var base_url = "http://127.0.0.1:8000";
+    function Post($http, config) {
+        var API = config.baseUrl;
 
         var Post = {
             all: all,
@@ -17,7 +17,7 @@
         return Post;
 
         function all(callback) {
-            $http.get(base_url + '/api/post/').then(callback, getErrorFn);
+            $http.get(API + '/api/post/').then(callback, getErrorFn);
 
             /*function getSuccessFn(data, status, header, config, response) {
                 return data.data;
@@ -30,7 +30,7 @@
         }
 
         function get(id, callback) {
-            $http.get(base_url + '/api/post/' + id + '/').then(callback, getErrorFn);
+            $http.get(API + '/api/post/' + id + '/').then(callback, getErrorFn);
 
             function getErrorFn(data, status, header, config, response) {
                 console.log('Error');

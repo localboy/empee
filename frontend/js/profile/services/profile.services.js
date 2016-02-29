@@ -1,3 +1,4 @@
+
 (function() {
     'use strict';
 
@@ -5,22 +6,28 @@
         .module('empee.profile.services')
         .factory('Profile', Profile);
 
-    Profile.$inject = ['$http'];
+    Profile.$inject = ['$http', 'empee.config'];
 
-    function Profile($http) {
+    function Profile($http, config) {
+        var API = config.baseUrl;
         var Profile = {
+            all: all,
             get: get,
             update: update
         };
 
         return Profile;
 
-        function get(username) {
-            return $http.get('api/user/' + username + '/');
+        function all() {
+            return $http.get(API + '/api/user');
         }
 
-        function update() {
+        function get(username) {
+            return $http.get(API + '/api/user/' + username + '/');
+        }
 
+        function update(profile) {
+            return $http.put(API + '/api/user/' + profile.username + '/'. profile);
         }
     }
 })();

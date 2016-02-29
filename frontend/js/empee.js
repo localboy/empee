@@ -5,7 +5,8 @@
         .module('empee', [
             'empee.routes',
             'empee.authentication',
-//            'empee.config',
+            'empee.config',
+            'empee.filter',
             'empee.layout',
             'empee.posts',
             'empee.profile',
@@ -16,8 +17,11 @@
     angular
         .module('empee.routes', ['ui.router']);
 
-    /*angular
-        .module('empee.config', []);*/
+    angular
+        .module('empee.config', []);
+
+    angular
+        .module('empee.filter', []);
 
     angular
         .module('empee')

@@ -27,8 +27,20 @@
                 controller: 'DashboardController'
 
             })
+            .state('dashboard.post', {
+                url: '/posts',
+                templateUrl: 'templates/posts.html'
+                /*controllerAs: 'vm',
+                controller: 'PostController'*/
+            })
             .state('dashboard.postDetail', {
                 url: '/post/:postID',
+                templateUrl: 'templates/post.detail.html',
+                controllerAs: 'vm',
+                controller: 'DashboardController'
+            })
+            .state('dashboard.postDetail.postDetail', {
+                url: '',
                 templateUrl: 'templates/post.detail.html',
                 controllerAs: 'vm',
                 controller: 'DashboardController'

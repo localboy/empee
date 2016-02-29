@@ -15,7 +15,8 @@
 
         Post.all(function(data) {
             vm.posts = data.data;
-//            console.log(vm.posts);
+            vm.totalPost = data.data.length;
+            console.log(vm.totalPost);
         });
         if(vm.postId){
             Post.get(vm.postId, function(data) {
