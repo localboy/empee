@@ -1,24 +1,30 @@
-<div class="col-md-8 col-md-offset-2" ng-controller="ProjectDetailController as vm">
-    <!--<div class="row">
-        <h3>{{ vm.projects.title }}</h3>
-        <P>{{ vm.projects.description }}</P>
-            <h4>Member of the project</h4>
+<div class="col-md-10 col-md-offset-1" ng-controller="ProjectDetailController as vm">
+    <div class="row">
+        <div class="title">
+            <h3>{{ vm.projects.title }} details</h3>
+        </div>
+        <div class="well">
+            <P>{{ vm.projects.description }}</P>
+        </div>
+        <div class="">
+            <h4 class="lead">Member of the project</h4>
             <div class="col-lg-4 col-sm-4 text-center" ng-repeat="member in vm.projects.member">
-                <img class="img-circle img-responsive img-center hoverable" src="static/img/user.png" alt="">
-                <h3>John Smith
-                            <small>{{ member.role }}</small>
-                        </h3>
+                <img class="img-circle img-responsive img-center hoverable" src="img/user.png" alt="">
+                <h3>
+                    John Smith<small>{{ member.role }}</small>
+                </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               </div>
-        </div>-->
+        </div>
+    </div>
 
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
+    <!--<div class="panel panel-default">
+      &lt;!&ndash; Default panel contents &ndash;&gt;
       <div class="panel-heading">{{ vm.projects.title }}</div>
       <div class="panel-body">
         <p>{{ vm.projects.description }}</p>
       </div>
-      <!-- Table -->
+      &lt;!&ndash; Table &ndash;&gt;
       <table class="table">
         <tr>
             <th>#</th>
@@ -31,7 +37,5 @@
           <td>{{ member.role }}</td>
         </tr>
       </table>
-    </div>
-
-
+    </div>-->
 </div>

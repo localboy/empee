@@ -16,7 +16,7 @@
                                     <!-- /nav-second-level -->
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-th-large nav_icon"></i>Users</a>
+                                    <a ui-sref=".users"><i class="fa fa-th-large nav_icon"></i>Users</a>
                                 </li>
 
                                 <li>
@@ -30,7 +30,6 @@
                 </div>
                 <!--left-fixed -navigation-->
 
-
                 <!-- header -->
                 <!-- <ng-include  src="'templates/blocks/header.html'"></ng-include> -->
                 <!-- header-starts -->
@@ -43,7 +42,7 @@
                         <div class="logo">
                             <a href="index.html">
                                 <h1>Empee</h1>
-                                <span>Skylarksoft</span>
+                                <span>SkylarkSoft</span>
                             </a>
                         </div>
                         <!--//logo-->
@@ -62,7 +61,7 @@
                     </div>
 
                         <!--notification menu end -->
-                        <div class="profile_details" ng-controller="NavbarController as vm">
+                        <div class="profile_details">
                             <ul>
                                 <li class="dropdown profile_details_drop">
                                     <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -100,32 +99,19 @@
                               <div class="row">
                                 <div ui-view>
                                     <h1 class="lead">Dashboard</h1>
-
-                                    <!--<div class="panel-group" ng-repeat="post in vm.posts">
-                                      <div class="panel panel-default">
-                                        <div class="panel-body">
-                                        <div class="row">
-                                          <div class="col-md-3"><img class="img img-thumbnail" src="img/user.png" /></div>
-                                          <div class="col-md-9">
-                                            <h3>{{ post.title }}</h3>
-                                            <p class="lead">{{ post.description }}<a ui-sref=".postDetail({postID: post.id})"><button class="btn btn-default">Read</button></a></p>
-                                          </div>
-                                        </div>
-                                        </div>
-                                      </div>
-                                    </div>-->
                                         <div ng-include="'templates/posts.html'"></div>
                                         <div class="col-md-4">
-                                            <div class="panel panel-primary"ng-controller="ProjectController as vm">
+                                            <div class="panel panel-primary">
                                               <div class="panel-heading">Project Information</div>
-                                              <div class="panel-body">
-                                                <table class="table table-bordered">
+                                              <div class="panel-body" >
+                                                <h3 ng-show="(vm.projects | userProject:vm.userid).length==0 ">You are not Involved any project yet.</h3>
+                                                <table class="table table-bordered" ng-hide="(vm.projects | userProject:vm.userid).length==0 ">
                                                     <tr>
                                                         <th>Id</th>
                                                         <th>Title</th>
                                                         <th>Action</th>
                                                     </tr>
-                                                    <tr ng-repeat="project in vm.projects">
+                                                    <tr ng-repeat="project in vm.projects | userProject:vm.userid">
                                                         <!--<td>{{ member.id }}</td>-->
                                                         <td>{{ project.id }}</td>
                                                         <td>{{ project.title }}</td>
@@ -137,7 +123,7 @@
                                             <div class="panel panel-success">
                                               <div class="panel-heading">Team Information</div>
                                               <div class="panel-body">
-                                                Panel content
+                                                You are not in a team.
                                               </div>
                                             </div>
                                         </div>
@@ -147,8 +133,12 @@
                     </div>
                 </div>
                 <!-- Footer -->
-                <ng-include  src="'templates/blocks/footer.html'"></ng-include>
-
+                <!--<ng-include  src="'templates/blocks/footer.html'"></ng-include>-->
+                  <!--footer-->
+                  <div class="footer">
+                     <p>&copy; 2016 Skylark Soft | Design by <a href="https://skylarksoft.com/" target="_blank">Skylarksoft Team</a></p>
+                  </div>
+                  <!--//footer-->
     </div>
 
 

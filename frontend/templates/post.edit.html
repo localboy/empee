@@ -1,0 +1,69 @@
+<div class="col-md-10col-md-offset-1"  ng-controller="PostController as vm">
+    <div class="panel">
+    <div class="panel-body">
+        <h3> Edit your post</h3>
+        <div class="container">
+            <form role="form" method="post" class="form-horizontal" ng-submit="vm.update()">
+     <!-- <div class="form-group">
+        <label for="id" class="col-sm-2 control-label">id</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="id" ng-model="vm.post.id" placeholder="Enter post title">
+        </div>
+      </div>
+        <div class="form-group">
+        <label for="user" class="col-sm-2 control-label">User</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="user" ng-model="vm.post.user" placeholder="Enter post title">
+        </div>
+      </div>-->
+        <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="title" ng-model="vm.post.title" placeholder="Enter post title">
+        </div>
+      </div>
+        <!--<div class="form-group">
+        <label for="create" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="create" ng-model="vm.post.created_at" placeholder="Enter post title">
+        </div>
+      </div>
+        <div class="form-group">
+        <label for="update" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="update" ng-model="vm.post.updated_at" placeholder="Enter post title">
+        </div>
+      </div>-->
+      <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+          <!--<input type="password" class="form-control" id="description" placeholder="Password">-->
+        <textarea class="form-control" id="description" rows="15" ng-model="vm.post.description"></textarea>
+        </div>
+      </div>
+
+        <!--<div class="form-group">
+        <label for="project" class="col-sm-2 control-label">Project</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="project" ng-model="vm.post.project" placeholder="Enter post title">
+        </div>
+      </div>-->
+      <!--<div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember me
+            </label>
+          </div>
+        </div>
+      </div>-->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Save</button>
+        </div>
+      </div>
+    </form>
+        </div>
+    </div>
+        </div>
+</div>

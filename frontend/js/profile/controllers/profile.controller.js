@@ -10,6 +10,7 @@
     function ProfileController(Profile, jwtHelper) {
         var vm = this;
         vm.profile = undefined;
+//        vm.users = users;
 
         active();
 
@@ -26,6 +27,30 @@
             function profileErrorFn(data, status, headers, config) {
                 console.log('Epic Error!');
             }
+
         }
+
+        Profile.all().then(profileSuccessFn, profileErrorFn);
+
+            function profileSuccessFn(data, status, headers, config) {
+                vm.users = data.data;
+//                console.log(vm.users);
+            }
+
+            function profileErrorFn(data, status, headers, config) {
+                console.log('Epic Error!');
+            }
+
+        /*function users() {
+            return Profile.all().then(profileSuccessFn, profileErrorFn);
+
+            function profileSuccessFn(data, status, headers, config) {
+                console.log(data.data);
+            }
+
+            function profileErrorFn(data, status, headers, config) {
+                console.log('Epic Error!');
+            }
+        }*/
     }
 })();

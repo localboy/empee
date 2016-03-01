@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2" ng-controller="DashboardController as vm">
+<div class="col-md-8 col-md-offset-2" >
     <div class="panel-group">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -34,7 +34,7 @@
     <nav>
       <ul class="pager">
         <li class="previous" ng-hide="vm.post.id==1"><a ui-sref=".postDetail({postID: vm.post.id-1})"><span aria-hidden="true">&larr;</span> Older</a></li>
-        <li class="next" ng-hide="vm.post.id>=2"><a ui-sref=".postDetail({postID: vm.post.id+1})">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next" ng-hide="vm.post.id==vm.posts.length"><a ui-sref=".postDetail({postID: vm.post.id+1})">Newer <span aria-hidden="true">&rarr;</span></a></li>
       </ul>
     </nav>
 </div>

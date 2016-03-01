@@ -12,7 +12,8 @@
 
         var Post = {
             all: all,
-            get: get
+            get: get,
+            update: update
         };
         return Post;
 
@@ -35,6 +36,10 @@
             function getErrorFn(data, status, header, config, response) {
                 console.log('Error');
             }
+        }
+
+        function update(post) {
+            return $http.put(API + '/api/post/' + post.id + '/', post);
         }
     }
 })();

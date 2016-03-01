@@ -13,7 +13,7 @@
         var token = localStorage.getItem('empee.token');
         vm.userid = jwtHelper.decodeToken(token).user_id;
         vm.username = jwtHelper.decodeToken(token).username;
-        console.log(vm.userid);
+//        console.log(vm.userid);
 
         function logout() {
             Authentication.logout();

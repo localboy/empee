@@ -39,6 +39,12 @@
                 controllerAs: 'vm',
                 controller: 'DashboardController'
             })
+            .state('dashboard.postEdit', {
+                url: '/post-edit/:postID',
+                templateUrl: 'templates/post.edit.html',
+                controllerAs: 'vm',
+                controller: 'DashboardController'
+            })
             .state('dashboard.postDetail.postDetail', {
                 url: '',
                 templateUrl: 'templates/post.detail.html',
@@ -54,6 +60,18 @@
                 templateUrl: 'templates/projects.html',
                 controllerAs: 'vm',
                 controller: 'ProjectController'
+            })
+            .state('dashboard.users', {
+                url: '/users',
+                templateUrl: 'templates/users.html',
+                controllerAs: 'vm',
+                controller: 'ProfileController'
+            })
+            .state('dashboard.projectDetail', {
+                url: '/project/:projectID',
+                templateUrl: 'templates/project_detail.html',
+                controllerAs: 'vm',
+                controller: 'ProjectDetailController'
             })
             .state('dashboard.project.projectDetail', {
                 url: '/project/:projectID',
