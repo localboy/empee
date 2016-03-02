@@ -12,6 +12,7 @@
 
         var Post = {
             all: all,
+            create: create,
             get: get,
             update: update
         };
@@ -28,6 +29,10 @@
             function getErrorFn(data, status, header, config, response) {
                 console.log('Error');
             }
+        }
+
+        function create(post) {
+            return $http.post(API + '/api/post/', post);
         }
 
         function get(id, callback) {

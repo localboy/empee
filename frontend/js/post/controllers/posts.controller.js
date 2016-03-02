@@ -11,10 +11,23 @@
         var vm = this;
         vm.postId = $stateParams.postID;
         vm.update = update;
+        vm.create = create;
 
-        Post.get(vm.postId, function(data) {
+        /*Post.get(vm.postId, function(data) {
             vm.post = data.data;
-        });
+        });*/
+
+        function create() {
+            Post.create(vm.post).then(createSuccessFn, createErrorFn);
+               console.log(vm.post);
+            function createSuccessFn(data, status, header, config, response) {
+                console.log('Success');
+            }
+
+            function createErrorFn(data, status, header, config, response) {
+                console.log('Error ' + response);
+            }
+        }
 
         function update() {
             Post.update(vm.post).then(updateSuccessFn, updateErrorFn);

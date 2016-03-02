@@ -33,6 +33,12 @@
                 /*controllerAs: 'vm',
                 controller: 'PostController'*/
             })
+            .state('dashboard.createPost', {
+                url: '/post-create/',
+                templateUrl: 'templates/post.create.html',
+                controllerAs: 'vm',
+                controller: 'PostController'
+            })
             .state('dashboard.postDetail', {
                 url: '/post/:postID',
                 templateUrl: 'templates/post.detail.html',
