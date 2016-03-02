@@ -10,7 +10,8 @@
             'empee.layout',
             'empee.posts',
             'empee.profile',
-            'empee.projects'
+            'empee.projects',
+            'empee.teams'
 
         ]);
 

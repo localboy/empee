@@ -18,8 +18,8 @@ class TeamMemberSerializer(serializers.ModelSerializer):
 
 
 class TeamSerializer(serializers.ModelSerializer):
-    member = TeamMemberSerializer(many=True, source='team_member')
+    # member = TeamMemberSerializer(many=True, source='team_member')
 
     class Meta:
         model = Team
-        fields = ('id', 'name', 'description', 'member')
+        # fields = ('id', 'name', 'description', 'member')

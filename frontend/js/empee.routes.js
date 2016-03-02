@@ -85,6 +85,12 @@
                 controllerAs: 'vm',
                 controller: 'ProjectDetailController'
             })
+            .state('dashboard.teams', {
+                url: '/teams',
+                templateUrl: 'templates/teams.html',
+                controllerAs: 'vm',
+                controller: 'TeamController'
+            })
             .state('test', {
                 url: '/test',
                 templateUrl: 'test.html'

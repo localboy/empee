@@ -31,7 +31,7 @@
 
         function update() {
             Post.update(vm.post).then(updateSuccessFn, updateErrorFn);
-            console.log(vm.post);
+//            console.log(vm.post);
             function updateSuccessFn(data, status, header, config, response) {
                 console.log(data);
             }
