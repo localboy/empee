@@ -1,0 +1,56 @@
+<div class="col-md-10 col-md-offset-1">
+    <a ui-sref=".projectCreate">
+        <button type="button" class="btn btn-info push-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create another project</button>
+    </a>
+    <h2>Projects list</h2>
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Total member</th>
+                <th class="push-right"></th>
+            </tr>
+            <tr ng-repeat="project in vm.projects">
+                <!--<td>{{ member.id }}</td>-->
+                <td>{{ project.id }}</td>
+                <td>{{ project.title }}</td>
+                <td>{{ project.start_date }}</td>
+                <td>{{ project.end_date }}</td>
+                <td>{{ project.member.length }}</td>
+                <td class="push-right">
+                    <a ui-sref=".projectDetail({ projectID: project.id })">
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye"></i></button>
+                    </a>
+                    <a ui-sref=".projectEdit({ projectID: project.id })">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></button>
+                    </a>
+                    <!--<a ui-sref=".projectDetail({ projectID: project.id })">-->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash-o"></i></button>
+                    <!--</a>-->
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!--Model content -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div ui-view>
+        <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content cancel-alert">
+        <div class="modal-body">
+            <h1>Are you sure ?</h1>
+        <!--</div>-->
+        <!--<div class="modal-footer">-->
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+</div>
+    </div>
+</div>

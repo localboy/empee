@@ -1,26 +1,21 @@
-<!--<h1>Users</h1>
-<div ng-repeat="user in vm.users">
-    <p>{{ user.username }}</p>
-</div>-->
-
 <div class="col-md-10 col-md-offset-1">
     <a ui-sref=".newTeam">
-        <button type="button" class="btn btn-info push-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create another user</button>
+        <button type="button" class="btn btn-info push-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create another team</button>
     </a>
-    <h3>User list</h3>
+    <h3>Team list</h3>
     <div class="row">
-    <div ng-show="vm.users">
+    <div ng-show="vm.teams">
         <table class="table table-striped">
             <tr>
-                <td>id</td>
-                <td>Username</td>
-                <td>Email</td>
+                <td>#</td>
+                <td>Name</td>
+                <td>Total member</td>
                 <td class="push-right"></td>
             </tr>
-            <tr ng-repeat="user in vm.users">
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
+            <tr ng-repeat="team in vm.teams">
+                <td>{{ team.id }}</td>
+                <td>{{ team.name }}</td>
+                <td>{{ team.member.length }}</td>
                 <td class="push-right">
                     <button class="btn btn-primary"><i class="fa fa-eye"></i></button>
                     <button class="btn btn-success"><i class="fa fa-pencil"></i></button>

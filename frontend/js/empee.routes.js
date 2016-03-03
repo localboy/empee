@@ -9,10 +9,10 @@
 
     function config($stateProvider, $urlRouterProvider){
 
-        //For any unmatched url
+        //For any unmatched URL
         $urlRouterProvider.otherwise('login');
 
-        //For state url
+        //For state URL
         $stateProvider
             .state('login', {
                 url: '/login',
@@ -22,72 +22,113 @@
             })
             .state('dashboard', {
                 url: '/dashboard',
-                templateUrl: 'templates/dashboard.html',
+                templateUrl: 'templates/dashboard/dashboard.html',
                 controllerAs: 'vm',
                 controller: 'DashboardController'
 
             })
+
+            //State URL for Post
             .state('dashboard.post', {
                 url: '/posts',
-                templateUrl: 'templates/posts.html'
+                templateUrl: 'templates/posts/posts.html'
                 /*controllerAs: 'vm',
                 controller: 'PostController'*/
             })
-            .state('dashboard.createPost', {
+            .state('dashboard.post.createPost', {
                 url: '/post-create/',
-                templateUrl: 'templates/post.create.html',
+                templateUrl: 'templates/posts/post.create.html',
                 controllerAs: 'vm',
                 controller: 'PostController'
             })
             .state('dashboard.postDetail', {
                 url: '/post/:postID',
-                templateUrl: 'templates/post.detail.html',
+                templateUrl: 'templates/posts/post.detail.html',
                 controllerAs: 'vm',
                 controller: 'DashboardController'
             })
             .state('dashboard.postEdit', {
                 url: '/post-edit/:postID',
-                templateUrl: 'templates/post.edit.html',
+                templateUrl: 'templates/posts/post.edit.html',
+                controllerAs: 'vm',
+                controller: 'DashboardController'
+            })
+            .state('dashboard.post.postEdit', {
+                url: '/post-edit/:postID',
+                templateUrl: 'templates/posts/post.edit.html',
+                controllerAs: 'vm',
+                controller: 'DashboardController'
+            })
+            .state('dashboard.post.postDetail', {
+                url: '/post/:postID',
+                templateUrl: 'templates/posts/post.detail.html',
+                controllerAs: 'vm',
+                controller: 'DashboardController'
+            })
+            .state('dashboard.post.postDetail.postDetail', {
+                url: '/post/:postID',
+                templateUrl: 'templates/posts/post.detail.html',
                 controllerAs: 'vm',
                 controller: 'DashboardController'
             })
             .state('dashboard.postDetail.postDetail', {
                 url: '',
-                templateUrl: 'templates/post.detail.html',
+                templateUrl: 'templates/posts/post.detail.html',
                 controllerAs: 'vm',
                 controller: 'DashboardController'
             })
+
+            //State URL for Profile
             .state('dashboard.profile', {
                 url: '/profile',
                 templateUrl: 'templates/profile.html'
             })
+
+
+            //State URL for Project
             .state('dashboard.project', {
                 url: '/projects',
-                templateUrl: 'templates/projects.html',
+                templateUrl: 'templates/projects/projects.html',
                 controllerAs: 'vm',
                 controller: 'ProjectController'
             })
+            .state('dashboard.project.projectDetail', {
+                url: '/:projectID',
+                templateUrl: 'templates/projects/project.detail.html',
+                controllerAs: 'vm',
+                controller: 'ProjectDetailController'
+            })
+            .state('dashboard.project.projectCreate', {
+                url: '',
+                templateUrl: 'templates/projects/project.create.html',
+                controllerAs: 'vm',
+                controller: 'ProjectController'
+            })
+            .state('dashboard.project.projectEdit', {
+                url: '/edit:projectID',
+                templateUrl: 'templates/projects/project.edit.html',
+                controllerAs: 'vm',
+                controller: 'ProjectDetailController'
+            })
+
+            //State URL for Users
             .state('dashboard.users', {
                 url: '/users',
                 templateUrl: 'templates/users.html',
                 controllerAs: 'vm',
                 controller: 'ProfileController'
             })
-            .state('dashboard.projectDetail', {
-                url: '/project/:projectID',
-                templateUrl: 'templates/project_detail.html',
-                controllerAs: 'vm',
-                controller: 'ProjectDetailController'
-            })
-            .state('dashboard.project.projectDetail', {
-                url: '/project/:projectID',
-                templateUrl: 'templates/project_detail.html',
-                controllerAs: 'vm',
-                controller: 'ProjectDetailController'
-            })
+
+            //State URL for Teams
             .state('dashboard.teams', {
                 url: '/teams',
-                templateUrl: 'templates/teams.html',
+                templateUrl: 'templates/teams/teams.html',
+                controllerAs: 'vm',
+                controller: 'TeamController'
+            })
+            .state('dashboard.teams.newTeam', {
+                url: '/teams',
+                templateUrl: 'templates/teams/team.create.html',
                 controllerAs: 'vm',
                 controller: 'TeamController'
             })

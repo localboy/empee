@@ -1,0 +1,36 @@
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">{{ vm.projects.title }} details</h4>
+        </div>
+        <div class="modal-body">
+            <div class="well">
+                <h4>Project description:</h4>
+                <P>{{ vm.projects.description }}</P>
+            </div>
+            <div class="well">
+                <P>Start date : {{ vm.projects.start_date }}</P>
+            </div>
+            <div class="well">
+                <P>End date : {{ vm.projects.end_date }}</P>
+            </div>
+            <div class="row">
+                <h4 class="lead">Member of the project</h4>
+                <div class="col-lg-4 col-sm-4 text-center" ng-repeat="member in vm.projects.member">
+                    <img class="img-circle img-responsive img-center hoverable" src="img/user.png" alt="">
+                    <h3>
+                        John Smith
+                        <small>{{ member.role }}</small>
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>

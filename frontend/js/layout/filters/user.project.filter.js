@@ -7,7 +7,7 @@
 
     userProject.$inject = [];
 
-    function userProject(jwtHelper) {
+    function userProject() {
 
         return function(input, uid) {
             var out = [];

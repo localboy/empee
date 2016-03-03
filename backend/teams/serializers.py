@@ -9,17 +9,17 @@ from .models import Team, TeamMember
 
 
 class TeamMemberSerializer(serializers.ModelSerializer):
-    first_user = serializers.ReadOnlyField(source='user.first_name')
-    last_user = serializers.ReadOnlyField(source='user.last_name')
+    first_name = serializers.ReadOnlyField(source='user.first_name')
+    last_name = serializers.ReadOnlyField(source='user.last_name')
 
     class Meta:
         model = TeamMember
-        fields = ('id', 'team', 'role', 'first_user', 'last_user')
+        fields = ('id', 'team', 'user', 'role', 'first_name', 'last_name')
 
 
 class TeamSerializer(serializers.ModelSerializer):
-    # member = TeamMemberSerializer(many=True, source='team_member')
+    member = TeamMemberSerializer(many=True, source='team_member')
 
     class Meta:
         model = Team
-        # fields = ('id', 'name', 'description', 'member')
+        fields = ('id', 'name', 'description', 'member')

@@ -5,20 +5,22 @@
         .module('empee.teams.controllers')
         .controller('TeamController', TeamController);
 
-    TeamController.$inject = ['Team'];
+    TeamController.$inject = ['$state', 'Team'];
 
-    function TeamController (Team) {
+    function TeamController ($state, Team) {
         var vm = this;
         vm.teams = 'Nothing';
         vm.submit = submit;
 
         function submit() {
-            Team.create(vm.team);
+            Team.create(vm.team, function() {
+                $state.go('dashboard.teams');
+            });
         }
 
         Team.all(function(data) {
             vm.teams = data.data;
-            console.log(data.data);
+//            console.log(data.data);
         });
 
         /*function teams () {

@@ -5,9 +5,9 @@
         .module('empee.layout.controllers')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', '$state', '$stateParams', 'jwtHelper', 'Authentication', 'Post', 'Project'];
+    DashboardController.$inject = ['$scope', '$state', '$stateParams', 'jwtHelper', 'Authentication', 'Post', 'Project', 'Team'];
 
-    function DashboardController($scope, $state, $stateParams, jwtHelper, Authentication, Post, Project) {
+    function DashboardController($scope, $state, $stateParams, jwtHelper, Authentication, Post, Project, Team) {
         var vm = this;
         vm.greeting = 'Hello Dear!';
         vm.logout = logout;
@@ -23,7 +23,7 @@
             $state.go('login');
         }
 
-         Project.all(function(data) {
+        Project.all(function(data) {
             vm.projects = data.data;
 //            window.console.log(vm.projects);
         });
@@ -37,16 +37,22 @@
             });
         }
 
-        function postUpdate() {
-            Post.update(vm.post).then(updateSuccessFn, updateErrorFn);
-            console.log(vm.post);
-            function updateSuccessFn(data, status, header, config, response) {
-                console.log(data);
-            }
+        Team.all(function (data) {
+            vm.teams = data.data;
+        });
 
-            function updateErrorFn(data, status, header, config, response) {
-                console.log('Error');
+//        if(vm.post) {
+            function postUpdate() {
+                Post.update(vm.post).then(updateSuccessFn, updateErrorFn);
+                console.log(vm.post);
+                function updateSuccessFn(data, status, header, config, response) {
+                    console.log(data);
+                }
+
+                function updateErrorFn(data, status, header, config, response) {
+                    console.log('Error');
+                }
             }
-        }
+//        }
     }
 })();

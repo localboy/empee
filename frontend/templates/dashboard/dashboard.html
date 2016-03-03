@@ -16,12 +16,8 @@
                         <!-- /nav-second-level -->
                     </li>
                     <li>
-                        <a ui-sref=".users"><i class="fa fa-th-large nav_icon"></i>Users</a>
+                        <a ui-sref=".users"><i class="fa fa-users nav_icon"></i>Users</a>
                     </li>
-                    <li>
-                        <a ui-sref=".createPost"><i class="fa fa-th-large nav_icon"></i>Create post</a>
-                    </li>
-
                     <li>
                         <a ui-sref=".teams"><i class="fa fa-table nav_icon"></i> Teams</a>
                     </li>
@@ -43,7 +39,7 @@
             <!--toggle button end-->
             <!--logo -->
             <div class="logo">
-                <a href="index.html">
+                <a href="#">
                     <h1>Empee</h1>
                     <span>SkylarkSoft</span>
                 </a>
@@ -104,10 +100,10 @@
                 <div class="row">
                     <div ui-view>
                         <h1 class="lead">Dashboard</h1>
-                        <div ng-include="'templates/posts.html'"></div>
+                        <div ng-include="'templates/dashboard/posts.html'"></div>
                         <div class="col-md-4">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">Project Information</div>
+                                <div class="panel-heading">Your Project Information</div>
                                 <div class="panel-body">
                                     <h3 ng-show="(vm.projects | userProject:vm.userid).length==0 ">You are not Involved
                                         any project yet.</h3>
@@ -119,7 +115,6 @@
                                             <th>Action</th>
                                         </tr>
                                         <tr ng-repeat="project in vm.projects | userProject:vm.userid">
-                                            <!--<td>{{ member.id }}</td>-->
                                             <td>{{ project.id }}</td>
                                             <td>{{ project.title }}</td>
                                             <td><a ui-sref=".projectDetail({ projectID: project.id })">
@@ -130,9 +125,26 @@
                                 </div>
                             </div>
                             <div class="panel panel-success">
-                                <div class="panel-heading">Team Information</div>
+                                <div class="panel-heading">Your Team</div>
                                 <div class="panel-body">
-                                    You are not in a team.
+                                    <h3 ng-show="(vm.teams | userTeam:vm.userid).length==0 ">You are not Involved
+                                        any team yet.</h3>
+                                    <div ng-hide="(vm.teams | userTeam:vm.userid).length==0 " ng-repeat="team in vm.teams | userTeam:vm.userid">
+                                        <h3 class="well">{{ team.name }}</h3>
+                                        <table class="table table-bordered">
+                                            <thead><h3>Team member</h3></thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Role</th>
+                                            </tr>
+                                            <tr ng-repeat="member in team.member">
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ member.first_name }} {{ member.last_name }}</td>
+                                                <td>{{ member.role }}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -142,12 +154,12 @@
         </div>
     </div>
     <!-- Footer -->
-    <!--<ng-include  src="'templates/blocks/footer.html'"></ng-include>-->
+    <ng-include  src="'templates/blocks/footer.html'"></ng-include>
     <!--footer-->
-    <div class="footer">
+    <!--<div class="footer">
         <p>&copy; 2016 Skylark Soft | Design by <a href="https://skylarksoft.com/" target="_blank">Skylarksoft Team</a>
         </p>
-    </div>
+    </div>-->
     <!--//footer-->
 </div>
 

@@ -125,6 +125,10 @@ ul.post-footer{
     float: right;
 }
 
+.cancel-alert {
+    margin-top : 350px;
+}
+
 .title {
     min-height: 20px;
     padding: 19px;

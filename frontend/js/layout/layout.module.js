@@ -4,7 +4,8 @@
     angular
         .module('empee.layout', [
             'empee.layout.controllers',
-            'empee.project.filter'
+            'empee.project.filter',
+            'empee.team.filter'
         ]);
 
     angular
@@ -12,4 +13,7 @@
 
     angular
         .module('empee.project.filter', []);
+
+    angular
+        .module('empee.team.filter', []);
 })();
