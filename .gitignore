@@ -1,2 +1,4 @@
-.idea
-db.slite3
+*.pyc 
+.idea/**/*
+db.sqlite3
+frontend/bower_components/

@@ -1,0 +1,134 @@
+<div ng-controller="ProfileController as vm">
+        <!-- Trigger the modal with a button -->
+      <button type="button" class="push-right btn btn-info" data-toggle="modal" data-target="#myModal">Edit Profile</button>
+        <div ng-show="vm.profile">
+            <h1 class="lead">User Profile</h1>
+            <div class=" panel">
+                <div class="row">
+                    <div class="col-md-2"><img class="img img-thumbnail" src="img/user.png" /></div>
+                    <div class="col-md-10">
+                        <div class="user-bio">
+                                <h3>User Bio: </h3>
+                                <p>{{ vm.profile.account.bio }}</p>
+                        </div>
+                        <div>
+                            <!-- Twitter -->
+                            <a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+                             <!-- Facebook -->
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+                            <!-- Google+ -->
+                            <a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+                            <!-- StumbleUpon -->
+                            <a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
+                            <!-- LinkedIn -->
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                        </div>
+                        <div class="personal-info">
+                            <!--<p class="lead">{{ vm.profile.username }}</p>-->
+                            <p class="lead">{{ vm.profile.email }}</p>
+                            <p class="lead">{{ vm.profile.first_name }}</p>
+                            <p class="lead">{{ vm.profile.last_name }}</p>
+                            <p class="lead">{{ vm.profile.account.phone }}</p>
+                            <p class="lead">{{ vm.profile.account.date_of_birth }}</p>
+                            <p class="lead">{{ vm.profile.account.address }}</p>
+                            <p class="lead">{{ vm.profile.account.hobby }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit profile</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+      <div class="row">
+        <div class="input-field col-md-6">
+          <input id="first_name" type="text" class="validate" ng-model="vm.profile.first_name">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col-md-6">
+          <input id="last_name" type="text" class="validate" ng-model="vm.profile.last_name">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col-md-12">
+          <input id="password" type="password" class="validate" ng-model="vm.profile.password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col-md-12">
+          <input id="email" type="email" class="validate" ng-model="vm.profile.email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col-md-6">
+          <input id="phone" type="text" class="validate" ng-model="vm.profile.account.phone">
+          <label for="phone">Phone Number</label>
+        </div>
+        <div class="input-field col-md-6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col-md-12">
+          <textarea id="textarea" class="materialize-textarea" ng-model="vm.profile.account.address"></textarea>
+          <label for="textarea">Address</label>
+        </div>
+      </div>
+      <div class="row">
+            <div class="col-md-5">
+                <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+        </div>
+       <div class="row">
+            <div class="col-md-5">
+                <label>Default Select</label>
+                <select class="browser-default">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+        </div>
+      <form action="#">
+    <p>
+      <input name="group1" type="radio" id="test1" />
+      <label for="test1">Red</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="test2" />
+      <label for="test2">Yellow</label>
+    </p>
+      <p>
+        <input name="group1" type="radio" id="test4" disabled="disabled" />
+        <label for="test4">Brown</label>
+    </p>
+  </form>
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-----End model----->
+</div>
