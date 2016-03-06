@@ -10,8 +10,10 @@
     function Project($http, config) {
         var API = config.baseUrl;
         var Project = {
+            all: all,
+            create: create,
             get: get,
-            all: all
+            update: update
         };
 
         return Project;
@@ -29,12 +31,20 @@
             }
         }
 
+        function create(project) {
+            return $http.post(API + '/api/project/', project);
+        }
+
         function get(id, callback) {
             return $http.get(API + '/api/project/' + id + '/').then(callback, getErrorFn);
 
             function getErrorFn (data, status, headers, config, response) {
                 console.log('Error');
             }
+        }
+
+        function update() {
+
         }
     }
 })();

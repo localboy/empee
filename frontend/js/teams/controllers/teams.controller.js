@@ -9,19 +9,17 @@
 
     function TeamController ($state, $stateParams, Team) {
         var vm = this;
-        vm.teams = 'Nothing';
         vm.submit = submit;
         vm.update = update;
         vm.addRow = addRow;
-        vm.team = [];
+        vm.team = {};
         vm.id = $stateParams.teamID;
 
 
 
         function submit() {
-            Team.create(vm.team, function() {
-                $state.go('dashboard.teams');
-            });
+            window.console.log(vm.team);
+            Team.create(vm.team);
         }
 
         Team.all(function(data) {
@@ -30,27 +28,27 @@
         });
 
 
-
         if(vm.id) {
+            console.log("Hello world");
             /*Team.get(vm.id, function(data) {
                 vm.team = data.data;
 //                console.log(data.data);
             });*/
-            Team.get(vm.id).then(getSuccessFn, getErrorFn);
 
-            function getSuccessFn(data, status, header, config, response) {
-//                console.log(data.data);
-                vm.team = data.data;
+            var sayHello = function() {
+                console.log("Hello World")
             }
+            vm.team = Team.get(vm.id, sayHello);
 
-            function getErrorFn(data, status, header, config, response) {
-                console.log('Error');
-            };
+
+
+
         }
 
         function update() {
             Team.update(vm.team, function() {
-                $state.go('dashboard.teams');
+//                $state.go('dashboard.teams');
+                location.reload();
             });
         }
 

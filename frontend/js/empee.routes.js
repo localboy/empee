@@ -81,7 +81,7 @@
             //State URL for Profile
             .state('dashboard.profile', {
                 url: '/profile',
-                templateUrl: 'templates/profile.html'
+                templateUrl: 'templates/users/profile.html'
             })
 
 
@@ -105,7 +105,7 @@
                 controller: 'ProjectController'
             })
             .state('dashboard.project.projectEdit', {
-                url: '/edit:projectID',
+                url: '/edit/:projectID',
                 templateUrl: 'templates/projects/project.edit.html',
                 controllerAs: 'vm',
                 controller: 'ProjectDetailController'
@@ -114,7 +114,19 @@
             //State URL for Users
             .state('dashboard.users', {
                 url: '/users',
-                templateUrl: 'templates/users.html',
+                templateUrl: 'templates/users/users.html',
+                controllerAs: 'vm',
+                controller: 'ProfileController'
+            })
+            .state('dashboard.users.newUser', {
+                url: '/users',
+                templateUrl: 'templates/users/user.create.html',
+                controllerAs: 'vm',
+                controller: 'ProfileController'
+            })
+            .state('dashboard.users.userDetail', {
+                url: '/:userID',
+                templateUrl: 'templates/users/user.detail.html',
                 controllerAs: 'vm',
                 controller: 'ProfileController'
             })
@@ -126,23 +138,23 @@
                 controllerAs: 'vm',
                 controller: 'TeamController'
             })
-            .state('dashboard.teams.newTeam', {
-                url: '/teams',
-                templateUrl: 'templates/teams/team.create.html',
-                controllerAs: 'vm',
-                controller: 'TeamController'
-            })
-            .state('dashboard.teams.teamDetail', {
-                url: '/:teamID',
-                templateUrl: 'templates/teams/team.detail.html',
-                controllerAs: 'vm',
-                controller: 'TeamController'
-            })
-            .state('dashboard.teams.teamEdit', {
-                url: '/edit/:teamID',
-                templateUrl: 'templates/teams/team.edit.html',
-                controllerAs: 'vm',
-                controller: 'TeamController'
-            });
+//            .state('dashboard.teams.newTeam', {
+//                url: '/teams',
+//                templateUrl: 'templates/teams/team.create.html',
+//                controllerAs: 'vm',
+//                controller: 'TeamController'
+//            })
+//            .state('dashboard.teams.teamDetail', {
+//                url: '/:teamID',
+//                templateUrl: 'templates/teams/team.detail.html',
+//                controllerAs: 'vm',
+//                controller: 'TeamController'
+//            })
+//            .state('dashboard.teams.teamEdit', {
+//                url: '/edit/:teamID',
+//                templateUrl: 'templates/teams/team.edit.html',
+//                controllerAs: 'vm',
+//                controller: 'TeamController'
+//            });
     }
 })();

@@ -31,8 +31,9 @@
             }
         }
 
-        function get(id) {
-            return $http.get(API + '/api/team/' + id + '/');/*.then(getSuccessFn, getErrorFn);
+        function get(id, lolfunc) {
+            lolfunc();
+            return $http.get(API + '/api/team/' + id + '/').then(getSuccessFn, getErrorFn);
 
             function getSuccessFn(data, status, header, config, response) {
                 console.log(data.data);
@@ -41,7 +42,7 @@
 
             function getErrorFn(data, status, header, config, response) {
                 console.log('Error');
-            }*/
+            }
         }
 
         function update(team, callback) {
@@ -57,14 +58,17 @@
         }
 
         function create (content) {
+            window.console.log(typeof content);
             $http.post(API + '/api/team/', content).then(createSuccessFn, createErrorFn);
 
             function createSuccessFn(data, status, header, config) {
                 console.log('Success');
+
             }
 
             function createErrorFn(data, status, header,config) {
                 console.log('Error');
+                console.log(data);
             }
         }
     }

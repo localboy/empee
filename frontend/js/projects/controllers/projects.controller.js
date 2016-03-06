@@ -10,6 +10,20 @@
     function ProjectController(Project) {
         var vm = this;
         vm.projects = "Bla";
+        vm.create = create;
+
+        function create() {
+            Project.create(vm.project).then(createSuccessFn, createErrorFn);
+
+            function createSuccessFn(data, status, header, config) {
+                console.log('Success');
+            }
+
+            function createErrorFn(data, status, header, config) {
+                console.log('Error');
+                console.log(data);
+            }
+        }
 
         Project.all(function(data) {
             vm.projects = data.data;

@@ -5,11 +5,12 @@
         .module('empee.profile.controllers')
         .controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['Profile', 'jwtHelper'];
+    ProfileController.$inject = ['$stateParams', 'Profile', 'jwtHelper'];
 
-    function ProfileController(Profile, jwtHelper) {
+    function ProfileController($stateParams, Profile, jwtHelper) {
         var vm = this;
         vm.profile = undefined;
+        vm.id = $stateParams.userID;
 //        vm.users = users;
 
         active();
@@ -28,6 +29,18 @@
                 console.log('Epic Error!');
             }
 
+        }
+
+        if(vm.id) {
+            Profile.get(vm.id).then(profileSuccessFn, profileErrorFn);
+
+            function profileSuccessFn(data, status, headers, config) {
+                vm.profile = data.data;
+            }
+
+            function profileErrorFn(data, status, headers, config) {
+                console.log('Epic Error!');
+            }
         }
 
         Profile.all().then(profileSuccessFn, profileErrorFn);

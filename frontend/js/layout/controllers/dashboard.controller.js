@@ -5,9 +5,9 @@
         .module('empee.layout.controllers')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', '$state', '$stateParams', 'jwtHelper', 'Authentication', 'Post', 'Project', 'Team'];
+    DashboardController.$inject = ['$scope', '$state', '$stateParams', 'jwtHelper', 'Authentication', 'Post', 'Project', 'Team', 'Comment'];
 
-    function DashboardController($scope, $state, $stateParams, jwtHelper, Authentication, Post, Project, Team) {
+    function DashboardController($scope, $state, $stateParams, jwtHelper, Authentication, Post, Project, Team, Comment) {
         var vm = this;
         vm.greeting = 'Hello Dear!';
         vm.logout = logout;
@@ -46,12 +46,22 @@
             vm.addComment = function() {
                 /*var comment = {
                     comment = $scope.comment,
-                    user = $scope.user
+                    post = vm.post.id,
+                    user = vm.userid
                 }*/
-                vm.post.comment.push({
-                    'comment': $scope.comment
-                });
-                $scope.comment = '';
+                /*vm.post.comment.push({
+                    'comment': $scope.comment,
+                    'post': vm.post.id,
+                    'user': vm.userid
+                });*/
+
+                Comment.create({
+                    'comment': $scope.comment,
+                    'post': vm.post.id,
+                    'user': vm.userid});
+//                vm.post.comment.push(comment);
+//                comment = '';
+//                $scope.comment = '';
 //                alert($scope.comment);
             }
 

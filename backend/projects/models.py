@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
+from teams.models import Team
+
 # Create your models here.
 
 
@@ -11,6 +13,7 @@ class Project(models.Model):
     description = models.TextField()
     start_date = models.DateField()
     end_date = models.DateField()
+    team = models.ForeignKey(Team, null=True, related_name='project_team')
     # user = models.ForeignKey(User)
 
     def __str__(self):
