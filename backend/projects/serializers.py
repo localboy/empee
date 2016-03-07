@@ -11,7 +11,7 @@ class ProjectMemberSerializer(serializers.ModelSerializer):
 
 class ProjectSerializer(serializers.ModelSerializer):
     member = ProjectMemberSerializer(many=True, source='project_member', required=False)
-    team = TeamSerializer(many=True, source='project_team', required=False)
+    # team = TeamSerializer(many=True, source='project_team', required=False)
 
     class Meta:
         model = Project

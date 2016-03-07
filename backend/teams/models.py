@@ -20,9 +20,12 @@ class TeamMember(models.Model):
         ('Member', 'Member')
     )
 
-    team = models.ForeignKey(Team, related_name='team_member')
+    team = models.ForeignKey(Team, related_name='team_member', blank=True)
     user = models.ForeignKey(User)
     role = models.CharField(max_length=15, choices=TEAM_MEMBER_ROLE)
+
+    """class Meta:
+        unique_together = (("team", "user"),)"""
 
     def __str__(self):
         return self.team.name

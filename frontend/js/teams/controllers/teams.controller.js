@@ -12,7 +12,9 @@
         vm.submit = submit;
         vm.update = update;
         vm.addRow = addRow;
+        vm.inputs = [];
         vm.team = {};
+        vm.team.member = [];
         vm.id = $stateParams.teamID;
 
 
@@ -24,41 +26,30 @@
 
         Team.all(function(data) {
             vm.teams = data.data;
-//            console.log(data.data);
         });
 
 
         if(vm.id) {
-            console.log("Hello world");
-            /*Team.get(vm.id, function(data) {
+            Team.get(vm.id, function(data) {
                 vm.team = data.data;
-//                console.log(data.data);
-            });*/
-
-            var sayHello = function() {
-                console.log("Hello World")
-            }
-            vm.team = Team.get(vm.id, sayHello);
-
-
-
-
+            });
         }
 
         function update() {
             Team.update(vm.team, function() {
 //                $state.go('dashboard.teams');
-                location.reload();
+                //location.reload();
             });
         }
 
         function addRow () {
-            vm.team.member.push(
-                { user: 'row #',
-                 role: 'this is new'
-                 }
-            );
-//            alert('hello');
+            /*vm.team.member.push(
+                {
+                    user: 'row #',
+                    role: 'this is new'
+                }
+            );*/
+            vm.team.member.push({});
         }
         /*function teams () {
             Teams.all().then(getSuccessFn, getErrorFn);

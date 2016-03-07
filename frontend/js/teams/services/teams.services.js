@@ -31,14 +31,14 @@
             }
         }
 
-        function get(id, lolfunc) {
-            lolfunc();
-            return $http.get(API + '/api/team/' + id + '/').then(getSuccessFn, getErrorFn);
+        function get(id, callback) {
+//            lolfunc();
+            return $http.get(API + '/api/team/' + id + '/').then(callback, getErrorFn);
 
-            function getSuccessFn(data, status, header, config, response) {
+            /*function getSuccessFn(data, status, header, config, response) {
                 console.log(data.data);
                 return data.data;
-            }
+            }*/
 
             function getErrorFn(data, status, header, config, response) {
                 console.log('Error');

@@ -14,5 +14,5 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
+    queryset = Comment.objects.select_related('user').all()
     serializer_class = CommentSerializer

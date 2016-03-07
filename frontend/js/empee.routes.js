@@ -24,8 +24,10 @@
                 url: '/dashboard',
                 templateUrl: 'templates/dashboard/dashboard.html',
                 controllerAs: 'vm',
-                controller: 'DashboardController'
-
+                controller: 'DashboardController',
+                onExit: function() {
+                    console.log(document.getElementById( 'showLeftPush' ));
+                }
             })
 
             //State URL for Post
@@ -138,23 +140,23 @@
                 controllerAs: 'vm',
                 controller: 'TeamController'
             })
-//            .state('dashboard.teams.newTeam', {
-//                url: '/teams',
-//                templateUrl: 'templates/teams/team.create.html',
-//                controllerAs: 'vm',
-//                controller: 'TeamController'
-//            })
-//            .state('dashboard.teams.teamDetail', {
-//                url: '/:teamID',
-//                templateUrl: 'templates/teams/team.detail.html',
-//                controllerAs: 'vm',
-//                controller: 'TeamController'
-//            })
-//            .state('dashboard.teams.teamEdit', {
-//                url: '/edit/:teamID',
-//                templateUrl: 'templates/teams/team.edit.html',
-//                controllerAs: 'vm',
-//                controller: 'TeamController'
-//            });
+            .state('dashboard.teams.newTeam', {
+                url: '/teams',
+                templateUrl: 'templates/teams/team.create.html',
+                controllerAs: 'vm',
+                controller: 'TeamController'
+            })
+            .state('dashboard.teams.teamDetail', {
+                url: '/:teamID',
+                templateUrl: 'templates/teams/team.detail.html',
+                controllerAs: 'vm',
+                controller: 'TeamController'
+            })
+            .state('dashboard.teams.teamEdit', {
+                url: '/edit/:teamID',
+                templateUrl: 'templates/teams/team.edit.html',
+                controllerAs: 'vm',
+                controller: 'TeamController'
+            });
     }
 })();

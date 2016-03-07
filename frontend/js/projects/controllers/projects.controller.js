@@ -11,6 +11,10 @@
         var vm = this;
         vm.projects = "Bla";
         vm.create = create;
+        vm.showModal = false;
+        vm.toggleModal = function() {
+           vm.showModal = !vm.showModal;
+        };
 
         function create() {
             Project.create(vm.project).then(createSuccessFn, createErrorFn);

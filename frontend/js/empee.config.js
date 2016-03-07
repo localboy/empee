@@ -6,6 +6,16 @@
         .value('empee.config', {
             baseUrl: 'http://127.0.0.1:8000'
         });
+        //.config(config);
+
+    //config.$inject = ['$rootScope'];
+
+    /*function config($rootScope) {
+        $rootScope.$on('$viewContentLoading', function(event, viewConfig) {
+            console.log(event);
+            console.log(viewConfig);
+        });
+    }*/
 
      /*   .config(config);
 

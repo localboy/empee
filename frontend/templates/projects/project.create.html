@@ -32,6 +32,23 @@
                 <input type="date" class="form-control" id="endDate" ng-model="vm.project.end_date" placeholder="End date">
               </div>
             </div>
+              <div class="form-group">
+              <label for="team" class="col-sm-2 control-label">End Date</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control" id="team" ng-model="vm.project.team" placeholder="Select team">
+              </div>
+            </div>
+
+              <fieldset  data-ng-repeat="choice in choices">
+                  <select>
+                     <option>Mobile</option>
+                     <option>Office</option>
+                     <option>Home</option>
+                  </select>
+                  <input type="text" ng-model="choice.name" name="" placeholder="Enter mobile number">
+                  <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+               </fieldset>
+
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Save</button>

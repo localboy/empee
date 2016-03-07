@@ -8,12 +8,16 @@
             'empee.config',
             'empee.filter',
             'empee.layout',
+            'empee.model',
             'empee.posts',
             'empee.profile',
             'empee.projects',
             'empee.teams'
 
         ]);
+
+    angular
+        .module('empee.model', ['ui.bootstrap']);
 
     angular
         .module('empee.routes', ['ui.router']);

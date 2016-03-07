@@ -28,6 +28,7 @@
 
 
     <script  src="bower_components/angular/angular.js"></script>
+    <script  src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script  src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script  src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script  src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
@@ -44,6 +45,9 @@
     <script  src="js/layout/controllers/dashboard.controller.js"></script>
     <script  src="js/layout/filters/user.project.filter.js"></script>
     <script  src="js/layout/filters/user.team.filter.js"></script>
+    <script  src="js/model/empee.model.js"></script>
+    <script  src="js/model/controllers/model.controller.js"></script>
+    <script  src="js/model/directives/model.directive.js"></script>
     <script  src="js/profile/profile.module.js"></script>
     <script  src="js/profile/services/profile.services.js"></script>
     <script  src="js/profile/controllers/profile.controller.js"></script>
@@ -79,12 +83,12 @@
     <!-- Classie -->
     <script src="js/lib/classie.js"></script>
     <script>
-        window.onload = load;
+        setTimeout(load, 2000);
+
         function load(){
             var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
                 showLeftPush = document.getElementById( 'showLeftPush' ),
                 body = document.body;
-
             showLeftPush.onclick = function() {
                 classie.toggle( this, 'active' );
                 classie.toggle( body, 'cbp-spmenu-push-toright' );
