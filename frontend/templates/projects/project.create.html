@@ -21,33 +21,33 @@
               </div>
             </div>
               <div class="form-group">
-              <label for="startDate" class="col-sm-2 control-label">Start Date</label>
+              <label class="col-sm-2 control-label">Start Date</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="startDate" ng-model="vm.project.start_date" placeholder="Start date">
+                   <datetimepicker data-ng-model="vm.project.start_date"></datetimepicker>
               </div>
             </div>
               <div class="form-group">
-              <label for="endDate" class="col-sm-2 control-label">End Date</label>
+              <label class="col-sm-2 control-label">End Date</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="endDate" ng-model="vm.project.end_date" placeholder="End date">
-              </div>
-            </div>
-              <div class="form-group">
-              <label for="team" class="col-sm-2 control-label">End Date</label>
-              <div class="col-sm-10">
-                <input type="date" class="form-control" id="team" ng-model="vm.project.team" placeholder="Select team">
+                   <datetimepicker data-ng-model="vm.project.end_date"></datetimepicker>
               </div>
             </div>
 
-              <fieldset  data-ng-repeat="choice in choices">
-                  <select>
-                     <option>Mobile</option>
-                     <option>Office</option>
-                     <option>Home</option>
-                  </select>
-                  <input type="text" ng-model="choice.name" name="" placeholder="Enter mobile number">
-                  <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
-               </fieldset>
+              <!--<div class="form-group">
+              <label class="col-sm-2 control-label">End Date</label>
+              <div class="col-sm-10">
+                &lt;!&ndash;<input type="date" class="form-control" id="endDate" ng-model="vm.project.end_date" placeholder="End date">&ndash;&gt;
+                &lt;!&ndash;<uib-datepicker ng-model="dt" class="well well-sm"></uib-datepicker>&ndash;&gt;
+                &lt;!&ndash;<input id="endDate" type="text" data-ng-datepicker ng-options="vm.datepickerOptions" data-ng-model="startdate">&ndash;&gt;
+                &lt;!&ndash;<input type="text" ng-datepicker ng-options="datepickerOptions" ng-model="date">&ndash;&gt;
+              </div>
+            </div>-->
+              <div class="form-group">
+              <label for="team" class="col-sm-2 control-label">Team</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="team" ng-model="vm.project.team" placeholder="Select team">
+              </div>
+            </div>
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">

@@ -22,7 +22,7 @@ from rest_framework import routers
 from .views import IndexView
 from users.views import AccountViewSet, LoginView, UserView
 from projects.views import ProjectViewSet
-from teams.views import TeamViewSets
+from teams.views import TeamViewSets, TemMemberViewSets
 from blog.views import PostViewSet, CommentViewSet
 
 router = routers.DefaultRouter()
@@ -32,6 +32,7 @@ router.register(r'user', UserView)
 router.register(r'project', ProjectViewSet)
 router.register(r'post', PostViewSet)
 router.register(r'team', TeamViewSets)
+router.register(r'teammember', TemMemberViewSets)
 
 urlpatterns = [
     # url(r'^$', TemplateView.as_view(template_name='index.html'), name="index"),

@@ -12,6 +12,7 @@
         var Project = {
             all: all,
             create: create,
+            deleteProject: deleteProject,
             get: get,
             update: update
         };
@@ -35,6 +36,18 @@
             return $http.post(API + '/api/project/', project);
         }
 
+        function deleteProject(id)  {
+            $http.delete(API + '/api/project/' + id + '/').then(deleteSuccessFn, deleteErrorFn);
+
+            function deleteSuccessFn(data, status, headers, config, response) {
+                console.log('Success');
+            }
+
+            function deleteErrorFn(data, status, headers, config, response) {
+                console.log(data);
+            }
+        }
+
         function get(id, callback) {
             return $http.get(API + '/api/project/' + id + '/').then(callback, getErrorFn);
 
@@ -43,8 +56,16 @@
             }
         }
 
-        function update() {
+        function update(project) {
+            $http.put(API + '/api/project/' + project.id + '/', content).then(updateSuccessFn, updateErrorFn);
 
+            function updateSuccessFn(data, status, headers, config, response) {
+                console.log('success');
+            }
+
+            function updateErrorFn(data, status, headers, config, response) {
+                console.log(data);
+            }
         }
     }
 })();

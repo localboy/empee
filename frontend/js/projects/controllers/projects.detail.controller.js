@@ -14,6 +14,8 @@
 //        console.log(vm.id);
         Project.get(vm.id, function(data) {
             vm.projects = data.data;
+            vm.projects.start_date = new Date(vm.projects.start_date);
+            vm.projects.end_date = new Date(vm.projects.end_date);
 //            console.log(vm.projects);
         });
     }

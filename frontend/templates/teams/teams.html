@@ -28,23 +28,46 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="team in vm.teams">
+                    <!--<td>{{ $index+1 }}</td>-->
                     <td>{{ team.id }}</td>
                     <td>{{ team.name }}</td>
                     <td>{{ team.member.length }}</td>
                     <td class="push-right">
                         <a ui-sref=".teamDetail({teamID: team.id})">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#viewModal">
                                 <i class="fa fa-eye"></i>
                             </button>
                         </a>
                         <a ui-sref=".teamEdit({teamID: team.id})">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#editModal">
                                 <i class="fa fa-pencil"></i>
                             </button>
                         </a>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                            <i class="fa fa-trash-o"></i>
-                        </button>
+                        <!--<a href="javascript:void(0)" ng-click="vm.deleteTeam(team.id, team)">-->
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{team.id}}">
+                            <!--<button class="btn btn-danger">-->
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        <!--</a>-->
+
+                        <div class="modal fade" id="deleteModal-{{team.id}}" role="dialog">
+                            <!--<div ui-view>-->
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content cancel-alert">
+                                        <div class="modal-body">
+                                            <h1>Are you sure ?</h1>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                                                    <a href="javascript:void(0)" ng-click="vm.deleteTeam(team.id, team)">
+
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                                                                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+                        </div>
+
                     </td>
                 </tr>
                 </tbody>
@@ -55,15 +78,17 @@
 
     <div class="modal fade" id="myModal" role="dialog">
         <div ui-view>
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content cancel-alert">
-                    <div class="modal-body">
-                        <h1>Are you sure ?</h1>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
+    <div class="modal fade" id="viewModal" role="dialog">
+        <div ui-view>
+
+        </div>
     </div>
+    <div class="modal fade" id="editModal" role="dialog">
+        <div ui-view>
+
+        </div>
+    </div>
+</div>

@@ -6,15 +6,23 @@
             'empee.routes',
             'empee.authentication',
             'empee.config',
+//            'empee.datepicker',
             'empee.filter',
             'empee.layout',
             'empee.model',
             'empee.posts',
             'empee.profile',
             'empee.projects',
-            'empee.teams'
+            'empee.teams',
+            'ui.bootstrap',
+//            'ng-bootstrap-datepicker',
+             'ui.bootstrap.datetimepicker',
+            'ngAnimate'
 
         ]);
+
+    /*angular
+        .module('empee.datepicker', ['ng-bootstrap-datepicker']);*/
 
     angular
         .module('empee.model', ['ui.bootstrap']);

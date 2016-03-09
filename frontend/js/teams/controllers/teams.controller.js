@@ -9,25 +9,46 @@
 
     function TeamController ($state, $stateParams, Team) {
         var vm = this;
-        vm.submit = submit;
-        vm.update = update;
         vm.addRow = addRow;
+        vm.deleteMember = deleteMember;
+        vm.deleteTeam = deleteTeam;
+        vm.id = $stateParams.teamID;
         vm.inputs = [];
+        vm.submit = submit;
         vm.team = {};
         vm.team.member = [];
-        vm.id = $stateParams.teamID;
+        vm.update = update;
 
+        function deleteMember(memId, item) {
+            if(memId){
+                Team.deleteMember(memId);
+            }
 
+            var index = vm.team.member.indexOf(item);
+            vm.team.member.splice(index,1);
+        }
+
+        function deleteTeam(teamId, team) {
+            Team.deleteTeam(teamId);
+
+            var index = vm.teams.indexOf(team);
+            vm.teams.splice(index, 1);
+        }
 
         function submit() {
             window.console.log(vm.team);
             Team.create(vm.team);
         }
 
-        Team.all(function(data) {
-            vm.teams = data.data;
-        });
 
+
+        var getData = function(){
+            Team.all(function(data) {
+                vm.teams = data.data;
+            });
+        }
+
+        getData();
 
         if(vm.id) {
             Team.get(vm.id, function(data) {
@@ -37,31 +58,14 @@
 
         function update() {
             Team.update(vm.team, function() {
-//                $state.go('dashboard.teams');
+                getData();
+                $state.go('dashboard.teams');
                 //location.reload();
             });
         }
 
         function addRow () {
-            /*vm.team.member.push(
-                {
-                    user: 'row #',
-                    role: 'this is new'
-                }
-            );*/
             vm.team.member.push({});
         }
-        /*function teams () {
-            Teams.all().then(getSuccessFn, getErrorFn);
-
-            function getSuccessFn(data, status, header, config, response) {
-                return data.data;
-                console.log(data.data);
-            }
-
-            function getErrorFn(data, status, header, config, response) {
-                console.log('Error');
-            }
-        }*/
     }
 })();

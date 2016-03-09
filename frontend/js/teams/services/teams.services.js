@@ -11,9 +11,11 @@
         var API = config.baseUrl;
         var Team = {
             all: all,
+            create: create,
+            deleteMember: deleteMember,
+            deleteTeam: deleteTeam,
             get: get,
-            update: update,
-            create: create
+            update: update
         };
 
         return Team;
@@ -28,6 +30,30 @@
 
             function allErrorFn(data, status, header, config, response) {
                 console.log('Error');
+            }
+        }
+
+        function deleteMember(id) {
+            $http.delete(API + '/api/teammember/' + id + '/').then(deleteSuccessFn, deleteErrorFn);
+
+            function deleteSuccessFn (data, status, header, config, response) {
+                console.log('Success');
+            }
+
+            function deleteErrorFn (data, status, header, config, response) {
+                console.log(data);
+            }
+        }
+
+        function deleteTeam(id) {
+            $http.delete(API + '/api/team/' + id +'/').then(deleteSuccessFn, deleteErrorFn);
+
+            function deleteSuccessFn (data, status, header, config, response) {
+                console.log(data.data);
+            }
+
+            function deleteErrorFn (data, status, header, config, response) {
+                console.log(data);
             }
         }
 
@@ -58,7 +84,7 @@
         }
 
         function create (content) {
-            window.console.log(typeof content);
+//            window.console.log(typeof content);
             $http.post(API + '/api/team/', content).then(createSuccessFn, createErrorFn);
 
             function createSuccessFn(data, status, header, config) {
@@ -68,7 +94,7 @@
 
             function createErrorFn(data, status, header,config) {
                 console.log('Error');
-                console.log(data);
+//                console.log(data);
             }
         }
     }
