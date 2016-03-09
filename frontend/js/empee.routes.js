@@ -133,7 +133,7 @@
                 controller: 'ProfileController'
             })
             .state('dashboard.users.userEdit', {
-                url: '/:userID',
+                url: '/edit/:userID',
                 templateUrl: 'templates/users/user.edit.html',
                 controllerAs: 'vm',
                 controller: 'ProfileController'

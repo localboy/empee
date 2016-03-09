@@ -67,24 +67,32 @@
         </div>
       </div>-->
       <div class="row">
-        <div class="input-field col-md-12">
+        <div class="input-field col-md-6">
                       <label for="email">Email</label>
           <input id="email" type="email" class="form-control" ng-model="vm.profile.email">
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col-md-4">
+
+        <div class="input-field col-md-6">
                       <label for="phone">Phone Number</label>
           <input id="phone" type="text" class="form-control" ng-model="vm.profile.account.phone">
         </div>
-        <div class="input-field col-md-4">
+                </div>
+          <div class="row">
+          <div class="input-field col-md-12">
+                      <label for="birthDate">Birth date</label>
+              <datetimepicker data-ng-model="vm.profile.account.date_of_birth"></datetimepicker>
+          <!--<input id="birthDate" type="text" class="form-control" ng-model="vm.profile.account.date_of_birth">-->
+        </div>
+          </div>
+          <div class="row">
+        <div class="input-field col-md-6">
                       <label for="marital_status">Marital Status</label>
             <select id="marital_status" class="form-control" ng-model="vm.profile.account.marital_status">
                 <option value="M">Married</option>
                 <option value="U">UnMarried</option>
             </select>
         </div>
-          <div class="input-field col-md-4">
+          <div class="input-field col-md-6">
                       <label for="gender">Gender</label>
             <select id="gender" class="form-control" ng-model="vm.profile.account.gender">
                 <option value="F">Female</option>

@@ -26,7 +26,7 @@ class Account(models.Model):
     phone = models.CharField(max_length=15)
     marital_status = models.CharField(max_length=1, choices=MARITAL_STATUS)
     gender = models.CharField(max_length=1, choices=GENDER)
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateTimeField(null=True)
     hobby = models.CharField(max_length=40)
     address = models.TextField()
     bio = models.TextField()

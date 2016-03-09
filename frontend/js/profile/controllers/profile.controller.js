@@ -67,36 +67,13 @@
         }
 
         function updateUser() {
-            console.log(vm.user);
-            Profile.updateUser(vm.user);
+            console.log(vm.profile);
+            Profile.updateUser(vm.profile);
         }
 
         Profile.all(function(data) {
             vm.users = data.data;
 //            window.console.log(vm.projects);
         });
-
-        /*Profile.all().then(profileSuccessFn, profileErrorFn);
-
-            function profileSuccessFn(data, status, headers, config) {
-                vm.users = data.data;
-//                console.log(vm.users);
-            }
-
-            function profileErrorFn(data, status, headers, config) {
-                console.log('Epic Error!');
-            }*/
-
-        /*function users() {
-            return Profile.all().then(profileSuccessFn, profileErrorFn);
-
-            function profileSuccessFn(data, status, headers, config) {
-                console.log(data.data);
-            }
-
-            function profileErrorFn(data, status, headers, config) {
-                console.log('Epic Error!');
-            }
-        }*/
     }
 })();
