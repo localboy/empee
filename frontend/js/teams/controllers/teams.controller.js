@@ -5,9 +5,9 @@
         .module('empee.teams.controllers')
         .controller('TeamController', TeamController);
 
-    TeamController.$inject = ['$state','$stateParams', 'Team'];
+    TeamController.$inject = ['$state','$stateParams', 'Team', 'Profile'];
 
-    function TeamController ($state, $stateParams, Team) {
+    function TeamController ($state, $stateParams, Team, Profile) {
         var vm = this;
         vm.addRow = addRow;
         vm.deleteMember = deleteMember;
@@ -18,6 +18,13 @@
         vm.team = {};
         vm.team.member = [];
         vm.update = update;
+        vm.teamUser = [];
+//        vm.users = users;
+
+        Profile.all(function(data) {
+            vm.users = data.data;
+//            window.console.log(vm.projects);
+        });
 
         function deleteMember(memId, item) {
             if(memId){
@@ -35,12 +42,32 @@
             vm.teams.splice(index, 1);
         }
 
-        function submit() {
-            window.console.log(vm.team);
-            Team.create(vm.team);
+        function getTeamMember(){
+            var team_member = [];
+
+            for(var i=0; i<vm.teamUser.length; i++){
+                team_member.push({
+                    user: vm.teamUser[i].user.id,
+                    role: vm.teamUser[i].role
+                });
+            }
+
+            return team_member;
         }
 
+        function submit() {
 
+              var team_member = getTeamMember();
+              console.log(team_member);
+
+            var qdata = {
+                name: vm.team.name,
+                description: vm.team.description,
+                member: team_member
+            }
+           //console.log(vm.teamUser);
+            Team.create(qdata);
+        }
 
         var getData = function(){
             Team.all(function(data) {
@@ -53,11 +80,20 @@
         if(vm.id) {
             Team.get(vm.id, function(data) {
                 vm.team = data.data;
+                console.log(vm.team);
             });
         }
 
         function update() {
-            Team.update(vm.team, function() {
+            var team_member = getTeamMember();
+              console.log(team_member);
+
+            var qdata = {
+                name: vm.team.name,
+                description: vm.team.description,
+                member: team_member
+            }
+            Team.update(qdata, function() {
                 getData();
                 $state.go('dashboard.teams');
                 //location.reload();

@@ -11,8 +11,8 @@ from teams.models import Team
 class Project(models.Model):
     title = models.CharField(max_length=40)
     description = models.TextField()
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date = models.CharField(max_length=50, null=True)
+    end_date = models.CharField(max_length=50, null=True)
     team = models.ForeignKey(Team, null=True, related_name='project_team')
     # user = models.ForeignKey(User)
 

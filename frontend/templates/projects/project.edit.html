@@ -1,41 +1,3 @@
-<!--<div class="modal-dialog">
-
-    &lt;!&ndash; Modal content&ndash;&gt;
-    <div class="modal-content">
-        <div class="modal-header title">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Edit Project</h4>
-        </div>
-        <div class="modal-body">
-            <div class="well">
-                <h4>Project description:</h4>
-                <P>{{ vm.projects.description }}</P>
-            </div>
-            <div class="well">
-                <P>Start date : {{ vm.projects.start_date }}</P>
-            </div>
-            <div class="well">
-                <P>End date : {{ vm.projects.end_date }}</P>
-            </div>
-            <div class="row">
-                <h4 class="lead">Member of the project</h4>
-                <div class="col-lg-4 col-sm-4 text-center" ng-repeat="member in vm.projects.member">
-                    <img class="img-circle img-responsive img-center hoverable" src="img/user.png" alt="">
-                    <h3>
-                        John Smith
-                        <small>{{ member.role }}</small>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-</div>-->
-
-
 <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -55,13 +17,13 @@
               <div class="form-group">
               <label for="startDate" class="col-sm-2 control-label">Start date</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="startDate" ng-model="vm.projects.start_date" placeholder="Start date">
+                <input type="text" class="form-control" id="startDate" ng-model="vm.projects.start_date" placeholder="Start date">
               </div>
             </div>
               <div class="form-group">
               <label for="endDate" class="col-sm-2 control-label">End date</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="endDate" ng-model="vm.projects.end_date" placeholder="Start date">
+                <input type="text" class="form-control" id="endDate" ng-model="vm.projects.end_date" placeholder="Start date">
               </div>
             </div>
             <div class="form-group">
@@ -70,10 +32,13 @@
               <textarea class="form-control" id="description" rows="15" ng-model="vm.projects.description"></textarea>
               </div>
             </div>
-              <div class="form-group" ng-show="vm.projects.team">
-              <label for="team" class="col-sm-2 control-label">Team</label>
+            <div class="form-group">
+              <label for="teamSelect" class="col-sm-2 control-label">Team</label>
               <div class="col-sm-10">
-              <input type="text" class="form-control" id="team" ng-model="vm.projects.team">
+                  <select name="mySelect" id="teamSelect" class="form-control"
+                      ng-options="option.name for option in vm.teams track by option.id"
+                      ng-model="vm.projects.team">
+                  </select>
               </div>
             </div>
             <div class="form-group">

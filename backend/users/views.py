@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from rest_framework import generics, viewsets, status, views, serializers
 from rest_framework.response import Response
 
-from .serializers import AccountSerializer, UserSerializer
+from .serializers import AccountSerializer, UserSerializer, UserProfileSerializer
 from .models import Account
 
 # Create your views here.
@@ -28,6 +28,11 @@ class AccountViewSet(viewsets.ModelViewSet):
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class UserProfileView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserProfileSerializer
 
 
 class LoginView(views.APIView):

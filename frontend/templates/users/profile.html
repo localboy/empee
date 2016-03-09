@@ -48,80 +48,83 @@
           <h4 class="modal-title">Edit profile</h4>
         </div>
         <div class="modal-body">
-          <form>
+                      <form role="form" method="post" class="form-horizontal" ng-submit="vm.update()">
       <div class="row">
         <div class="input-field col-md-6">
-          <input id="first_name" type="text" class="validate" ng-model="vm.profile.first_name">
-          <label for="first_name">First Name</label>
+                      <label for="first_name">First Name</label>
+          <input id="first_name" type="text" class="form-control" ng-model="vm.profile.first_name">
         </div>
         <div class="input-field col-md-6">
-          <input id="last_name" type="text" class="validate" ng-model="vm.profile.last_name">
-          <label for="last_name">Last Name</label>
+                      <label for="last_name">Last Name</label>
+          <input id="last_name" type="text" class="form-control" ng-model="vm.profile.last_name">
         </div>
       </div>
-      <div class="row">
+      <!--<div class="row">
         <div class="input-field col-md-12">
+            <label for="password">Password</label>
           <input id="password" type="password" class="validate" ng-model="vm.profile.password">
-          <label for="password">Password</label>
+
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="input-field col-md-12">
+                      <label for="email">Email</label>
+          <input id="email" type="email" class="form-control" ng-model="vm.profile.email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col-md-4">
+                      <label for="phone">Phone Number</label>
+          <input id="phone" type="text" class="form-control" ng-model="vm.profile.account.phone">
+        </div>
+        <div class="input-field col-md-4">
+                      <label for="marital_status">Marital Status</label>
+            <select id="marital_status" class="form-control" ng-model="vm.profile.account.marital_status">
+                <option value="M">Married</option>
+                <option value="U">UnMarried</option>
+            </select>
+        </div>
+          <div class="input-field col-md-4">
+                      <label for="gender">Gender</label>
+            <select id="gender" class="form-control" ng-model="vm.profile.account.gender">
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+            </select>
         </div>
       </div>
       <div class="row">
         <div class="input-field col-md-12">
-          <input id="email" type="email" class="validate" ng-model="vm.profile.email">
-          <label for="email">Email</label>
+                      <label for="hobby">Your Hobby</label>
+          <textarea id="hobby" class="form-control" ng-model="vm.profile.account.hobby"></textarea>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col-md-6">
-          <input id="phone" type="text" class="validate" ng-model="vm.profile.account.phone">
-          <label for="phone">Phone Number</label>
-        </div>
-        <div class="input-field col-md-6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+        <div class="row">
+        <div class="input-field col-md-12">
+          <label for="address">Address</label>
+          <textarea id="address" class="form-control" ng-model="vm.profile.account.address"></textarea>
         </div>
       </div>
       <div class="row">
         <div class="input-field col-md-12">
-          <textarea id="textarea" class="materialize-textarea" ng-model="vm.profile.account.address"></textarea>
-          <label for="textarea">Address</label>
+          <label for="userBio">About You</label>
+          <textarea id="userBio" class="form-control" ng-model="vm.profile.account.bio"></textarea>
         </div>
       </div>
-      <div class="row">
+      <!--<div class="row">
             <div class="col-md-5">
-                <select>
+                <select class="form-control">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                 </select>
             </div>
-        </div>
-       <div class="row">
-            <div class="col-md-5">
-                <label>Default Select</label>
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
-            </div>
-        </div>
-      <form action="#">
-    <p>
-      <input name="group1" type="radio" id="test1" />
-      <label for="test1">Red</label>
-    </p>
-    <p>
-      <input name="group1" type="radio" id="test2" />
-      <label for="test2">Yellow</label>
-    </p>
-      <p>
-        <input name="group1" type="radio" id="test4" disabled="disabled" />
-        <label for="test4">Brown</label>
-    </p>
-  </form>
+        </div>-->
+                          <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </div>
     </form>
         </div>
         <div class="modal-footer">

@@ -35,33 +35,23 @@
         if(vm.postId){
             Post.get(vm.postId, function(data) {
                 vm.post = data.data;
+                console.log(vm.post);
             });
 
-            /*$scope.addRow = function(){
-                $scope.companies.push({ 'name':$scope.name, 'employees': $scope.employees, 'headoffice':$scope.headoffice });
-                $scope.name='';
-                $scope.employees='';
-                $scope.headoffice='';
-            };*/
             vm.addComment = function() {
-                /*var comment = {
-                    comment = $scope.comment,
-                    post = vm.post.id,
-                    user = vm.userid
-                }*/
-                /*vm.post.comment.push({
+                vm.post.comment.push({
                     'comment': $scope.comment,
                     'post': vm.post.id,
-                    'user': vm.userid
-                });*/
-
+                    'username': vm.username
+                });
+                console.log(vm.post.comment);
                 Comment.create({
                     'comment': $scope.comment,
                     'post': vm.post.id,
                     'user': vm.userid});
 //                vm.post.comment.push(comment);
 //                comment = '';
-//                $scope.comment = '';
+                $scope.comment = '';
 //                alert($scope.comment);
             }
 

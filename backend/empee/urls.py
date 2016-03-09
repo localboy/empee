@@ -20,7 +20,7 @@ from django.contrib import admin
 from rest_framework import routers
 
 from .views import IndexView
-from users.views import AccountViewSet, LoginView, UserView
+from users.views import AccountViewSet, LoginView, UserView, UserProfileView
 from projects.views import ProjectViewSet
 from teams.views import TeamViewSets, TemMemberViewSets
 from blog.views import PostViewSet, CommentViewSet
@@ -29,6 +29,7 @@ router = routers.DefaultRouter()
 router.register(r'account', AccountViewSet)
 router.register(r'comment', CommentViewSet)
 router.register(r'user', UserView)
+router.register(r'userprofile', UserProfileView)
 router.register(r'project', ProjectViewSet)
 router.register(r'post', PostViewSet)
 router.register(r'team', TeamViewSets)

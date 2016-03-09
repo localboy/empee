@@ -5,14 +5,16 @@
         .module('empee.projects.controllers')
         .controller('ProjectController', ProjectController)
 
-    ProjectController.$inject = ['Project'];
+    ProjectController.$inject = ['Project', 'Team'];
 
-    function ProjectController(Project) {
+    function ProjectController(Project, Team) {
         var vm = this;
         vm.projects = "Bla";
+//        vm.teams = teams
         vm.create = create;
         vm.deleteProject = deleteProject;
-        vm.showModal = false;
+
+        /*vm.showModal = false;
         vm.toggleModal = function() {
            vm.showModal = !vm.showModal;
         };
@@ -25,14 +27,27 @@
                 endDate: "2012-10-31",
                 autoclose: true,
                 weekStart: 0
-            }
+            }*/
 
+        Team.all(function(data) {
+                vm.teams = data.data;
+            });
 
         function create() {
             /*console.log()
             vm.projects.start_date = new Date(vm.projects.start_date);
             vm.projects.end_date = new Date(vm.projects.end_date);*/
-            Project.create(vm.project).then(createSuccessFn, createErrorFn);
+
+            var qdata = {
+                title: vm.project.title,
+                description: vm.project.description,
+                start_date: vm.project.start_date,
+                end_date: vm.project.end_date,
+                team: vm.project.team.id
+            }
+            console.log(qdata);
+
+            Project.create(qdata).then(createSuccessFn, createErrorFn);
 
             function createSuccessFn(data, status, header, config) {
                 console.log('Success');

@@ -132,6 +132,12 @@
                 controllerAs: 'vm',
                 controller: 'ProfileController'
             })
+            .state('dashboard.users.userEdit', {
+                url: '/:userID',
+                templateUrl: 'templates/users/user.edit.html',
+                controllerAs: 'vm',
+                controller: 'ProfileController'
+            })
 
             //State URL for Teams
             .state('dashboard.teams', {

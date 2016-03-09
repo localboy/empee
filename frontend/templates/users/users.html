@@ -12,21 +12,54 @@
     <div ng-show="vm.users">
         <table class="table table-striped">
             <tr>
-                <td>id</td>
+                <td>#</td>
                 <td>Username</td>
                 <td>Email</td>
                 <td class="push-right"></td>
             </tr>
             <tr ng-repeat="user in vm.users">
-                <td>{{ user.id }}</td>
+                <td>{{ $index+1 }}</td>
+                <!--<td>{{ user.id }}</td>-->
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td class="push-right">
                     <a ui-sref=".userDetail({ userID: user.id })">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye"></i></button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#detailModal-{{user.id}}">
+                            <i class="fa fa-eye"></i>
+                        </button>
                     </a>
-                    <button class="btn btn-success"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                    <a ui-sref=".userEdit({ userID: user.id })">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#editModal-{{user.id}}">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                    </a>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{user.id}}">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+
+                    <div class="modal fade" id="deleteModal-{{user.id}}" role="dialog">
+                    <!--<div ui-view>-->
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content cancel-alert">
+                                <div class="modal-body">
+                                    <h1>Are you sure ?</h1>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                    <a href="javascript:void(0)" ng-click="vm.deleteUser(user.id, user)">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                </div>
+                    <div class="modal fade" id="detailModal-{{user.id}}" role="dialog">
+                        <div ui-view></div>
+                    </div>
+                    <div class="modal fade" id="editModal-{{user.id}}" role="dialog">
+                        <div ui-view></div>
+                    </div>
+
                 </td>
             </tr>
         </table>

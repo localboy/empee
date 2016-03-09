@@ -23,36 +23,38 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <table class="table table-striped">
-                        <!--<thead>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Role</th>
-                        </thead>-->
-                        <tbody>
-                        <h3 ng-show="vm.inputs.length>0">Team member</h3>
-                        <tr ng-repeat="input in vm.team.member">
-                            <!--<td>{{ $index + 1 }}</td>-->
-                            <td><input type="number" class="form-control" ng-model="input.user" placeholder="Enter Member"></td>
-                            <!--<td><input type="text" class="form-control" ng-model="input.role"></td>-->
-                            <td>
-                                <select type="text" class="form-control" ng-model="input.role">
-                                    <option value="Leader">Leader</option>
-                                    <option value="Member">Member</option>
-                                </select>
-                            </td>
-                            <td>
-                                <a href="javascript:void(0)" ng-click="vm.deleteMember(input.id, input)"><i class="fa fa-minus-circle"></i></a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <a href="javascript:void(0)" ng-click="vm.addRow()">Add Member</a>
-                </div>
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <table class="table table-striped">
+                            <!--<thead>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                            </thead>-->
+                            <tbody>
+                            <h3 ng-show="vm.inputs.length>0">Team member</h3>
+                            <tr ng-repeat="input in vm.team.member">
+                                <!--<td>{{ $index + 1 }}</td>-->
+                                <td>
+                                  <select name="mySelect" id="userSelect" class="form-control"
+                                      ng-options="option.username for option in vm.users track by option.id"
+                                      ng-model="vm.teamUser[$index].user">
+                                  </select>
+                                </td>
+                                <td>
+                                    <select type="text" class="form-control" ng-model="vm.teamUser[$index].role">
+                                        <option value="Leader">Leader</option>
+                                        <option value="Member">Member</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0)" ng-click="vm.deleteMember(input.id, input)"><i class="fa fa-minus-circle"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="javascript:void(0)" ng-click="vm.addRow()">Add Member</a>
                     </div>
-                <!--<input type="text" class="form-control" ng-model="vm.team.member.user">
-                <input type="text" class="form-control" ng-model="vm.team.member.role">-->
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="form-group">

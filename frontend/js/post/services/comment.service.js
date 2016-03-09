@@ -20,8 +20,8 @@
             $http.post(API + '/api/comment/', content).then(createSuccessFn, createErrorFn);
 
                 function createSuccessFn(data, header, status) {
-//                    console.log('success');
-                      location.reload();
+                    console.log('success');
+//                      location.reload();
                 }
 
                 function createErrorFn(data, header, status) {

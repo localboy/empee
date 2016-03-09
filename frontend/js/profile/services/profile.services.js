@@ -12,22 +12,82 @@
         var API = config.baseUrl;
         var Profile = {
             all: all,
+            create: create,
+            deleteUser: deleteUser,
             get: get,
-            update: update
+            update: update,
+            updateUser: updateUser
         };
 
         return Profile;
 
-        function all() {
-            return $http.get(API + '/api/user');
+        function all(callback) {
+            $http.get(API + '/api/userprofile/').then(callback, getErrorFn);
+
+            /*function getSuccessFn(data, status, headers, config, response) {
+                return data;
+                //console.log(data);
+            }*/
+
+            function getErrorFn (data, status, headers, config, response) {
+                console.log('Error');
+            }
         }
 
+        function create(user) {
+            $http.post(API + '/api/user/', user).then(successFn, errorFn);
+
+            function successFn(data, status, config, headers) {
+                console.log('Success');
+            }
+
+            function errorFn(data, status, config, headers) {
+                console.log(data);
+            }
+        }
+
+        function deleteUser(id) {
+            $http.delete(API + '/api/userprofile/' + id + '/').then(deleteSuccessFn, deleteErrorFn);
+
+            function deleteSuccessFn(data, status, config, headers){
+                console.log('Success');
+            }
+
+            function deleteErrorFn(data, status, config, headers) {
+                console.log(data);
+            }
+        }
+
+       /* function all() {
+            return $http.get(API + '/api/user');
+        }*/
+
         function get(username) {
-            return $http.get(API + '/api/user/' + username + '/');
+            return $http.get(API + '/api/userprofile/' + username + '/');
         }
 
         function update(profile) {
-            return $http.put(API + '/api/user/' + profile.username + '/'. profile);
+            return $http.put(API + '/api/userprofile/' + profile.id + '/', profile).then(putSuccessFn, putErrorFn);
+
+            function putSuccessFn(data, status, config, headers, response) {
+                console.log('success');
+            }
+
+            function putErrorFn(data, status, config, headers, response) {
+                console.log(data.data);
+            }
+        }
+
+        function updateUser(profile) {
+            return $http.put(API + '/api/user/' + profile.id + '/', profile).then(putSuccessFn, putErrorFn);
+
+            function putSuccessFn(data, status, config, headers, response) {
+                console.log('success');
+            }
+
+            function putErrorFn(data, status, config, headers, response) {
+                console.log(data.data);
+            }
         }
     }
 })();

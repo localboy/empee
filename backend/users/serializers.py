@@ -5,6 +5,11 @@ from django.contrib.auth.models import User
 from .models import Account, SocialInfo
 
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+
+
 class SocialSerializer(serializers.ModelSerializer):
     class Meta:
         model = SocialInfo
@@ -14,7 +19,7 @@ class SocialSerializer(serializers.ModelSerializer):
 class AccountSerializer(serializers.ModelSerializer):
     # username = serializers.CharField(source='user.username')
     # email = serializers.CharField(source='user.email')
-    social = SocialSerializer(many=True, source='account_social')
+    social = SocialSerializer(many=True, source='account_social', required=False)
     # s = serializers.SocialInfo.objects.all()
 
     class Meta:
@@ -27,7 +32,7 @@ class AccountSerializer(serializers.ModelSerializer):
 #         model = Account
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.ModelSerializer):
     permission_class = permissions.IsAdminUser
     account = AccountSerializer(source='user_account')
 
