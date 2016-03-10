@@ -5,9 +5,9 @@
         .module('empee.teams.controllers')
         .controller('TeamController', TeamController);
 
-    TeamController.$inject = ['$state','$stateParams', 'Team', 'Profile'];
+    TeamController.$inject = ['$scope','$state','$stateParams', 'Team', 'Profile', '$log'];
 
-    function TeamController ($state, $stateParams, Team, Profile) {
+    function TeamController ($scope, $state, $stateParams, Team, Profile, $log) {
         var vm = this;
         vm.addRow = addRow;
         vm.deleteMember = deleteMember;
@@ -20,6 +20,10 @@
         vm.update = update;
         vm.teamUser = [];
 //        vm.users = users;
+
+        //Pagination
+        vm.itemsPerPage=3;
+        vm.currentPage = 4;
 
         Profile.all(function(data) {
             vm.users = data.data;
@@ -67,6 +71,8 @@
             }
            //console.log(vm.teamUser);
             Team.create(qdata);
+            //vm.modalInstance.close();
+            $('#myModal').modal('toggle');
         }
 
         var getData = function(){

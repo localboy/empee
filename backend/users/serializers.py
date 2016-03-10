@@ -8,6 +8,13 @@ from .models import Account, SocialInfo
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password')
+
+
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password')
 
 
 class SocialSerializer(serializers.ModelSerializer):
@@ -24,7 +31,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ('phone', 'marital_status', 'gender', 'date_of_birth', 'hobby', 'address', 'bio', 'social')
+        fields = ('id', 'user', 'phone', 'marital_status', 'gender', 'date_of_birth', 'hobby', 'address', 'bio', 'social')
 
 
 # class AccountSer(serializers.ModelSerializer):
@@ -34,7 +41,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
 class UserProfileSerializer(serializers.ModelSerializer):
     permission_class = permissions.IsAdminUser
-    account = AccountSerializer(source='user_account')
+    account = AccountSerializer(many=False, source='account_ref_user')
 
     class Meta:
         model = User

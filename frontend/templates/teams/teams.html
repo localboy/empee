@@ -15,6 +15,7 @@
             </button>
         </a>
         <h3>Team list</h3>
+        <span>Total teams: {{vm.teams.length}}</span>
         <div class="row">
         <div >
             <table class="table table-striped">
@@ -27,8 +28,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="team in vm.teams">
-                    <!--<td>{{ $index+1 }}</td>-->
+                <tr ng-repeat="team in vm.teams.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))">
                     <td>{{ team.id }}</td>
                     <td>{{ team.name }}</td>
                     <td>{{ team.member.length }}</td>
@@ -74,6 +74,7 @@
             </table>
         </div>
         </div>
+        <uib-pagination total-items='vm.teams.length' items-per-page="vm.itemsPerPage" ng-model="vm.currentPage"></uib-pagination>
     </div>
 
     <div class="modal fade" id="myModal" role="dialog">

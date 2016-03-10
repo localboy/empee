@@ -13,19 +13,23 @@
         vm.update = update;
         vm.create = create;
 
+        //Pagination
+        vm.itemsPerPage=3;
+        vm.currentPage = 1;
+
         /*Post.get(vm.postId, function(data) {
             vm.post = data.data;
         });*/
 
         function create() {
             Post.create(vm.post).then(createSuccessFn, createErrorFn);
-               console.log(vm.post);
+//               console.log(vm.post);
             function createSuccessFn(data, status, header, config, response) {
                 console.log('Success');
             }
 
             function createErrorFn(data, status, header, config, response) {
-                console.log('Error ' + response);
+                console.log(data);
             }
         }
 

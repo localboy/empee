@@ -21,7 +21,7 @@ class Account(models.Model):
     # name = models.CharField(max_length=40)
     # nick_name = models.CharField(max_length=40)
     # email = models.EmailField(unique=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_account')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='account_ref_user')
     position = models.CharField(max_length=40, default='New Member')
     phone = models.CharField(max_length=15)
     marital_status = models.CharField(max_length=1, choices=MARITAL_STATUS)

@@ -41,11 +41,11 @@
                 url: '/post-create/',
                 templateUrl: 'templates/posts/post.create.html',
                 controllerAs: 'vm',
-                controller: 'PostController'
+                controller: 'DashboardController'
             })
             .state('dashboard.postDetail', {
                 url: '/post/:postID',
-                templateUrl: 'templates/posts/post.detail.html',
+                templateUrl: 'templates/dashboard/post.detail.html',
                 controllerAs: 'vm',
                 controller: 'DashboardController'
             })
@@ -80,10 +80,23 @@
                 controller: 'DashboardController'
             })
 
+            .state('dashboard.userProject', {
+                url: '/user-project/:projectID',
+                templateUrl: 'templates/dashboard/dashboard.project.html',
+                controllerAs: 'vm',
+                controller: 'ProjectDetailController'
+            })
+
             //State URL for Profile
             .state('dashboard.profile', {
                 url: '/profile',
                 templateUrl: 'templates/users/profile.html'
+            })
+            .state('dashboard.settings', {
+                url: '/settings',
+                templateUrl: 'templates/users/user.settings.html',
+                controllerAs: 'vm',
+                controller: 'ProfileController'
             })
 
 

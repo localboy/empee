@@ -14,7 +14,7 @@ class Post(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    project = models.ForeignKey(Project, related_name='project_post')
+    project = models.ForeignKey(Project, related_name='project_post', null=True)
 
     def __str__(self):
         return self.title

@@ -11,5 +11,5 @@
         .module('empee.teams.services', []);
 
     angular
-        .module('empee.teams.controllers', []);
+        .module('empee.teams.controllers', ['ngAnimate', 'ui.bootstrap']);
 })();

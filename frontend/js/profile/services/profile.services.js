@@ -15,7 +15,9 @@
             create: create,
             deleteUser: deleteUser,
             get: get,
-            update: update,
+            getAccount: getAccount,
+            getUser: getUser,
+            updateAccount: updateAccount,
             updateUser: updateUser
         };
 
@@ -62,12 +64,31 @@
             return $http.get(API + '/api/user');
         }*/
 
-        function get(username) {
-            return $http.get(API + '/api/userprofile/' + username + '/');
+        function get(id) {
+            return $http.get(API + '/api/userprofile/' + id + '/');
         }
 
-        function update(profile) {
+        function getAccount(id) {
+            return $http.get(API + '/api/account/' + id + '/');
+        }
+        function getUser(id) {
+            return $http.get(API + '/api/account/' + id + '/');
+        }
+
+        /*function update(profile) {
             return $http.put(API + '/api/userprofile/' + profile.id + '/', profile).then(putSuccessFn, putErrorFn);
+
+            function putSuccessFn(data, status, config, headers, response) {
+                console.log('success');
+            }
+
+            function putErrorFn(data, status, config, headers, response) {
+                console.log(data.data);
+            }
+        }*/
+
+        function updateAccount(account) {
+            return $http.put(API + '/api/account/' + account.id + '/', account).then(putSuccessFn, putErrorFn);
 
             function putSuccessFn(data, status, config, headers, response) {
                 console.log('success');
@@ -78,11 +99,11 @@
             }
         }
 
-        function updateUser(profile) {
-            return $http.put(API + '/api/user/' + profile.id + '/', profile).then(putSuccessFn, putErrorFn);
+        function updateUser(user) {
+            return $http.put(API + '/api/user/' + user.id + '/', user).then(putSuccessFn, putErrorFn);
 
             function putSuccessFn(data, status, config, headers, response) {
-                console.log('success');
+                console.log('success user');
             }
 
             function putErrorFn(data, status, config, headers, response) {

@@ -17,6 +17,10 @@
         vm.id = $stateParams.userID;
 //        vm.users = users;
 
+        //Pagination
+        vm.itemsPerPage=3;
+        vm.currentPage = 1;
+
         active();
 
         function active() {
@@ -62,8 +66,31 @@
         }
 
         function update() {
-            console.log(vm.profile);
-            Profile.update(vm.profile);
+            var user = {
+                id: vm.profile.id,
+                first_name: vm.profile.first_name,
+                last_name: vm.profile.last_name,
+                username: vm.profile.username,
+                email: vm.profile.email,
+                password: vm.profile.password
+
+            }
+
+            var account = {
+                id: vm.profile.account.id,
+                user: vm.profile.account.user,
+                phone: vm.profile.account.phone,
+                marital_status: vm.profile.account.marital_status,
+                gender: vm.profile.account.gender,
+                date_of_birth: vm.profile.account.date_of_birth,
+                hobby: vm.profile.account.hobby,
+                address: vm.profile.account.address,
+                bio: vm.profile.account.bio
+            }
+            console.log(user);
+            Profile.updateUser(user);
+            Profile.updateAccount(account);
+            $('#myModal').modal('toggle');
         }
 
         function updateUser() {

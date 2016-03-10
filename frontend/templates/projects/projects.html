@@ -13,7 +13,7 @@
                 <th>Total member</th>
                 <th class="push-right"></th>
             </tr>
-            <tr ng-repeat="project in vm.projects">
+            <tr ng-repeat="project in vm.projects.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))">
                 <!--<td>{{ member.id }}</td>-->
                 <td>{{ project.id }}</td>
                 <td>{{ project.title }}</td>
@@ -22,10 +22,10 @@
                 <td>{{ project.member.length }}</td>
                 <td class="push-right">
                     <a ui-sref=".projectDetail({ projectID: project.id })">
-                        <button class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye"></i></button>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#viewModal"><i class="fa fa-eye"></i></button>
                     </a>
                     <a ui-sref=".projectEdit({ projectID: project.id })">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil"></i></button>
                     </a>
                     <!--<a ui-sref=".projectDetail({ projectID: project.id })">-->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{ project.id }}"><i class="fa fa-trash-o"></i></button>
@@ -51,38 +51,20 @@
             </tr>
         </table>
     </div>
+    <uib-pagination total-items='vm.projects.length' items-per-page="vm.itemsPerPage" ng-model="vm.currentPage"></uib-pagination>
 </div>
-<!--<div>-->
-<!--<button ng-click="vm.toggleModal()" class="btn btn-default">Open modal</button>
-
-  <modal title="Login form" visible="vm.showModal">
-      <div ui-view>
-        <form role="form">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" />
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
-  </modal>-->
-<!--</div>-->
-<!--Model -->
 <div class="modal fade" id="myModal" role="dialog">
     <div ui-view>
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content cancel-alert">
-                <div class="modal-body">
-                    <h1>Are you sure ?</h1>
-                <!--<div class="modal-footer">-->
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="viewModal" role="dialog">
+    <div ui-view>
+
+    </div>
+</div>
+<div class="modal fade" id="editModal" role="dialog">
+    <div ui-view>
+
     </div>
 </div>

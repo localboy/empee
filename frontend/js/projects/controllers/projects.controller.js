@@ -14,20 +14,9 @@
         vm.create = create;
         vm.deleteProject = deleteProject;
 
-        /*vm.showModal = false;
-        vm.toggleModal = function() {
-           vm.showModal = !vm.showModal;
-        };
-
-
-            vm.datepickerOptions = {
-                format: 'yyyy-mm-dd',
-                language: 'fr',
-                startDate: "2012-10-01",
-                endDate: "2012-10-31",
-                autoclose: true,
-                weekStart: 0
-            }*/
+        //Pagination
+        vm.itemsPerPage=3;
+        vm.currentPage = 1;
 
         Team.all(function(data) {
                 vm.teams = data.data;

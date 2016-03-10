@@ -17,19 +17,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="user in vm.users">
+                    <tr ng-repeat="user in vm.users.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))"">
                         <td>{{ $index+1 }}</td>
                         <!--<td>{{ user.id }}</td>-->
                         <td>{{ user.username }}</td>
                         <td>{{ user.email }}</td>
                         <td class="push-right">
                             <a ui-sref=".userDetail({ userID: user.id })">
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#detailModal-{{user.id}}">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#viewModal">
                                     <i class="fa fa-eye"></i>
                                 </button>
                             </a>
                             <a ui-sref=".userEdit({ userID: user.id })">
-                                <button class="btn btn-success" data-toggle="modal" data-target="#editModal-{{user.id}}">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#editModal">
                                     <i class="fa fa-pencil"></i>
                                 </button>
                             </a>
@@ -52,7 +52,7 @@
                                     </div>
                                 <!--</div>-->
                             </div>
-                            <div class="modal fade" id="detailModal-{{user.id}}" role="dialog">
+                            <!--<div class="modal fade" id="detailModal-{{user.id}}" role="dialog">
                                 <div ui-view>
 
                                 </div>
@@ -61,16 +61,27 @@
                                 <div ui-view>
 
                                 </div>
-                            </div>
+                            </div>-->
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+            <uib-pagination total-items='vm.users.length' items-per-page="vm.itemsPerPage" ng-model="vm.currentPage"></uib-pagination>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
+    <div ui-view>
+
+    </div>
+</div>
+<div class="modal fade" id="viewModal" role="dialog">
+    <div ui-view>
+
+    </div>
+</div>
+<div class="modal fade" id="editModal" role="dialog">
     <div ui-view>
 
     </div>

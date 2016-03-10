@@ -77,13 +77,13 @@
           <input id="phone" type="text" class="form-control" ng-model="vm.profile.account.phone">
         </div>
                 </div>
-          <div class="row">
+          <!--<div class="row">
           <div class="input-field col-md-12">
                       <label for="birthDate">Birth date</label>
               <datetimepicker data-ng-model="vm.profile.account.date_of_birth"></datetimepicker>
-          <!--<input id="birthDate" type="text" class="form-control" ng-model="vm.profile.account.date_of_birth">-->
+          &lt;!&ndash;<input id="birthDate" type="text" class="form-control" ng-model="vm.profile.account.date_of_birth">&ndash;&gt;
         </div>
-          </div>
+          </div>-->
           <div class="row">
         <div class="input-field col-md-6">
                       <label for="marital_status">Marital Status</label>
@@ -115,7 +115,7 @@
       <div class="row">
         <div class="input-field col-md-12">
           <label for="userBio">About You</label>
-          <textarea id="userBio" class="form-control" ng-model="vm.profile.account.bio"></textarea>
+          <textarea id="userBio" rows="5" class="form-control" ng-model="vm.profile.account.bio"></textarea>
         </div>
       </div>
       <!--<div class="row">
@@ -128,11 +128,14 @@
                 </select>
             </div>
         </div>-->
-                          <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success">Save</button>
+              <div class="row">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <button type="submit" class="btn btn-success btn-block">Save</button>
                     </div>
                 </div>
+              </div>
+
     </form>
         </div>
         <div class="modal-footer">
