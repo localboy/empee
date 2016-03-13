@@ -7,6 +7,7 @@
             <h4 class="modal-title">Create Team</h4>
         </div>
         <div class="modal-body">
+          <uib-alert ng-show="vm.alerts" type="{{vm.alerts.type}}">{{vm.alerts.msg}}</uib-alert>
             <form role="form" method="post" class="form-horizontal" ng-submit="vm.update()">
                 <div class="form-group">
                     <label for="title" class="col-sm-2 control-label">Team name</label>

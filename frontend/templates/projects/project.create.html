@@ -11,7 +11,7 @@
               <div class="form-group">
               <label for="title" class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" ng-model="vm.project.title" placeholder="Enter project title">
+                <input type="text" class="form-control" id="title" ng-model="vm.project.title" placeholder="Enter project title" required>
               </div>
             </div>
             <div class="form-group">
@@ -32,16 +32,6 @@
                    <datetimepicker data-ng-model="vm.project.end_date"></datetimepicker>
               </div>
             </div>
-
-              <!--<div class="form-group">
-              <label class="col-sm-2 control-label">End Date</label>
-              <div class="col-sm-10">
-                &lt;!&ndash;<input type="date" class="form-control" id="endDate" ng-model="vm.project.end_date" placeholder="End date">&ndash;&gt;
-                &lt;!&ndash;<uib-datepicker ng-model="dt" class="well well-sm"></uib-datepicker>&ndash;&gt;
-                &lt;!&ndash;<input id="endDate" type="text" data-ng-datepicker ng-options="vm.datepickerOptions" data-ng-model="startdate">&ndash;&gt;
-                &lt;!&ndash;<input type="text" ng-datepicker ng-options="datepickerOptions" ng-model="date">&ndash;&gt;
-              </div>
-            </div>-->
               <div class="form-group">
               <label for="teamSelect" class="col-sm-2 control-label">Team</label>
               <div class="col-sm-10">

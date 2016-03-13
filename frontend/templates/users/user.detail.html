@@ -13,8 +13,8 @@
             <h1 class="lead">User Profile</h1>
             <div class=" panel">
                 <div class="row">
-                    <div class="col-md-2"><img class="img img-thumbnail" src="img/user.png" /></div>
-                    <div class="col-md-10">
+                    <!--<div class="col-md-2"><img class="img img-thumbnail" src="img/user.png" /></div>-->
+                    <div class="col-md-12">
                         <div class="user-bio">
                                 <h3>User Bio: </h3>
                                 <p>{{ vm.profile.account.bio }}</p>
@@ -27,20 +27,54 @@
                             <!-- Google+ -->
                             <a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
                             <!-- StumbleUpon -->
-                            <a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
+                            <!--<a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>-->
                             <!-- LinkedIn -->
-                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                            <!--<a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>-->
                         </div>
-                        <div class="personal-info">
-                            <!--<p class="lead">{{ vm.profile.username }}</p>-->
+                        <!--<div class="personal-info">
+                            &lt;!&ndash;<p class="lead">{{ vm.profile.username }}</p>&ndash;&gt;
                             <p class="lead">{{ vm.profile.email }}</p>
-                            <p class="lead">{{ vm.profile.first_name }}</p>
+                            <p class="lead">{{ vm.profile.first_name + ' '+ vm.profile.last_name }}</p>
                             <p class="lead">{{ vm.profile.last_name }}</p>
                             <p class="lead">{{ vm.profile.account.phone }}</p>
                             <p class="lead">{{ vm.profile.account.date_of_birth }}</p>
                             <p class="lead">{{ vm.profile.account.address }}</p>
                             <p class="lead">{{ vm.profile.account.hobby }}</p>
-                        </div>
+                        </div>-->
+                        <table class="table">
+                            <tr>
+                                <th>Name</th>
+                                <td>{{ vm.profile.first_name + ' '+ vm.profile.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ vm.profile.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <td>{{ vm.profile.account.phone }}</td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>{{ vm.profile.account.gender }}</td>
+                            </tr>
+                            <tr>
+                                <th>Marital Status</th>
+                                <td>{{ vm.profile.account.marital_status }}</td>
+                            </tr>
+                            <tr>
+                                <th>Birthday</th>
+                                <td>{{ vm.profile.account.date_of_birth }}</td>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <td>{{ vm.profile.account.address }}</td>
+                            </tr>
+                            <tr>
+                                <th>Hobby</th>
+                                <td>{{ vm.profile.account.hobby }}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>

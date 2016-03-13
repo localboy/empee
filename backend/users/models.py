@@ -30,6 +30,7 @@ class Account(models.Model):
     hobby = models.CharField(max_length=40)
     address = models.TextField()
     bio = models.TextField()
+    image = models.CharField(max_length=250, null=True)
 
     def __str__(self):
         return self.user.username

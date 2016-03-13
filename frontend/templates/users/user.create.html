@@ -1,40 +1,44 @@
 <div class="modal-dialog">
 
-          <!--Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Create User</h4>
-            </div>
-            <div class="modal-body">
-                <form role="form" method="post" class="form-horizontal" ng-submit="vm.create()">
-                    <div class="form-group">
+    <!--Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Create User</h4>
+        </div>
+        <div class="modal-body">
+            <uib-alert ng-show="vm.alerts" type="{{vm.alerts.type}}">{{vm.alerts.msg}}</uib-alert>
+            <form role="form" method="post" class="form-horizontal" ng-submit="vm.create()">
+                <div class="form-group">
                     <label for="username" class="col-sm-2 control-label">Username</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="username" ng-model="vm.user.username" placeholder="Enter Username">
+                        <input type="text" class="form-control" id="username" ng-model="vm.user.username"
+                               placeholder="Enter Username" required>
                     </div>
-                  </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label for="email" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="email" ng-model="vm.user.email" placeholder="Enter Email">
+                        <input type="email" class="form-control" id="email" ng-model="vm.user.email"
+                               placeholder="Enter Email" required>
                     </div>
-                  </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label for="password" class="col-sm-2 control-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="password" class="form-control" id="password" ng-model="vm.user.password" placeholder="Enter password">
+                        <input type="password" class="form-control" id="password" ng-model="vm.user.password"
+                               placeholder="Enter password" required>
                     </div>
-                  </div>
-                  <div class="form-group">
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-success">Save</button>
+                        <button type="submit" class="btn btn-success">Save</button>
                     </div>
-                  </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
+                </div>
+            </form>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>

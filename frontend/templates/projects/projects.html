@@ -10,16 +10,16 @@
                 <th>Title</th>
                 <th>Start date</th>
                 <th>End date</th>
-                <th>Total member</th>
+                <!--<th>Total member</th>-->
                 <th class="push-right"></th>
             </tr>
             <tr ng-repeat="project in vm.projects.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))">
                 <!--<td>{{ member.id }}</td>-->
                 <td>{{ project.id }}</td>
                 <td>{{ project.title }}</td>
-                <td>{{ project.start_date }}</td>
-                <td>{{ project.end_date }}</td>
-                <td>{{ project.member.length }}</td>
+                <td>{{ project.start_date | date:'MMMM dd, yyyy' }}</td>
+                <td>{{ project.end_date | date:'MMMM dd, yyyy' }}</td>
+                <!--<td>{{ project.team.member.length }}</td>-->
                 <td class="push-right">
                     <a ui-sref=".projectDetail({ projectID: project.id })">
                         <button class="btn btn-info" data-toggle="modal" data-target="#viewModal"><i class="fa fa-eye"></i></button>

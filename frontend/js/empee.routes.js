@@ -49,12 +49,12 @@
                 controllerAs: 'vm',
                 controller: 'DashboardController'
             })
-            .state('dashboard.postEdit', {
+            /*.state('dashboard.postEdit', {
                 url: '/post-edit/:postID',
                 templateUrl: 'templates/posts/post.edit.html',
                 controllerAs: 'vm',
                 controller: 'DashboardController'
-            })
+            })*/
             .state('dashboard.post.postEdit', {
                 url: '/post-edit/:postID',
                 templateUrl: 'templates/posts/post.edit.html',

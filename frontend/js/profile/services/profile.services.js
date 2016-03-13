@@ -37,15 +37,7 @@
         }
 
         function create(user) {
-            $http.post(API + '/api/user/', user).then(successFn, errorFn);
-
-            function successFn(data, status, config, headers) {
-                console.log('Success');
-            }
-
-            function errorFn(data, status, config, headers) {
-                console.log(data);
-            }
+            return $http.post(API + '/api/user/', user);
         }
 
         function deleteUser(id) {
@@ -92,6 +84,7 @@
 
             function putSuccessFn(data, status, config, headers, response) {
                 console.log('success');
+                 $('#myModal').modal('toggle');
             }
 
             function putErrorFn(data, status, config, headers, response) {
@@ -100,15 +93,7 @@
         }
 
         function updateUser(user) {
-            return $http.put(API + '/api/user/' + user.id + '/', user).then(putSuccessFn, putErrorFn);
-
-            function putSuccessFn(data, status, config, headers, response) {
-                console.log('success user');
-            }
-
-            function putErrorFn(data, status, config, headers, response) {
-                console.log(data.data);
-            }
+            return $http.put(API + '/api/user/' + user.id + '/', user);
         }
     }
 })();

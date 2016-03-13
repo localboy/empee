@@ -57,15 +57,15 @@
         }
 
         function update(project) {
-            $http.put(API + '/api/project/' + project.id + '/', project).then(updateSuccessFn, updateErrorFn);
+            return $http.put(API + '/api/project/' + project.id + '/', project);/*.then(updateSuccessFn, updateErrorFn);
 
             function updateSuccessFn(data, status, headers, config, response) {
-                console.log('success');
+               $('#editModal').modal('toggle');
             }
 
             function updateErrorFn(data, status, headers, config, response) {
                 console.log(data);
-            }
+            }*/
         }
     }
 })();

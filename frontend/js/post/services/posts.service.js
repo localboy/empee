@@ -19,7 +19,7 @@
         return Post;
 
         function all(callback) {
-            $http.get(API + '/api/post/').then(callback, getErrorFn);
+            $http.get(API + '/api/posts/').then(callback, getErrorFn);
 
             /*function getSuccessFn(data, status, header, config, response) {
                 return data.data;
@@ -36,7 +36,7 @@
         }
 
         function get(id, callback) {
-            $http.get(API + '/api/post/' + id + '/').then(callback, getErrorFn);
+            $http.get(API + '/api/posts/' + id + '/').then(callback, getErrorFn);
 
             function getErrorFn(data, status, header, config, response) {
                 console.log('Error');

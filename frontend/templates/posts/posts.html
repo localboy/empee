@@ -1,4 +1,5 @@
 <div class="col-md-10 col-md-offset-1">
+    <uib-alert ng-show="vm.alerts" type="{{vm.alerts.type}}" close="closeAlert()">{{vm.alerts.msg}}</uib-alert>
     <a ui-sref=".createPost">
         <button type="button" class="btn btn-info push-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create another</button>
     </a>

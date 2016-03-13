@@ -71,31 +71,32 @@
             }
         }
 
-        function update(team, callback) {
-            $http.put(API + '/api/team/' + team.id + '/', team).then(callback, updateErrorFn);
+        function update(team) {
+            return $http.put(API + '/api/team/' + team.id + '/', team);/*.then(callback, updateErrorFn);
 
-            /*function updateSuccessFn(data, status, header, config, response) {
-                console.log('success');
-            }*/
+            *//*function updateSuccessFn(data, status, header, config, response) {
+                $('#myModal').modal('toggle');
+            }*//*
 
             function updateErrorFn(data, status, header, config, response) {
-                console.log('error');
-            }
+//                console.log(data);
+            }*/
+//            }
         }
 
         function create (content) {
 //            window.console.log(typeof content);
-            $http.post(API + '/api/team/', content).then(createSuccessFn, createErrorFn);
+            return $http.post(API + '/api/team/', content);/*.then(createSuccessFn, createErrorFn);
 
             function createSuccessFn(data, status, header, config) {
-                console.log('Success');
+                $('#myModal').modal('toggle');
 
             }
 
             function createErrorFn(data, status, header,config) {
                 console.log('Error');
 //                console.log(data);
-            }
+            }*/
         }
     }
 })();

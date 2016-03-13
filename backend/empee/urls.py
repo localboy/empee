@@ -23,7 +23,7 @@ from .views import IndexView
 from users.views import AccountViewSet, LoginView, UserView, UserProfileView
 from projects.views import ProjectViewSet
 from teams.views import TeamViewSets, TemMemberViewSets
-from blog.views import PostViewSet, CommentViewSet
+from blog.views import PostViewSet, CommentViewSet, PostsViewSet
 
 router = routers.DefaultRouter()
 router.register(r'account', AccountViewSet)
@@ -32,6 +32,7 @@ router.register(r'user', UserView)
 router.register(r'userprofile', UserProfileView)
 router.register(r'project', ProjectViewSet)
 router.register(r'post', PostViewSet)
+router.register(r'posts', PostsViewSet)
 router.register(r'team', TeamViewSets)
 router.register(r'teammember', TemMemberViewSets)
 

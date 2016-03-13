@@ -70,9 +70,20 @@
                 member: team_member
             }
            //console.log(vm.teamUser);
-            Team.create(qdata);
+            Team.create(qdata).then(createSuccessFn, createErrorFn);
+
+            function createSuccessFn(data, status, header, config) {
+                $('#myModal').modal('toggle');
+
+            }
+
+            function createErrorFn(data, status, header,config) {
+            vm.alerts =
+                        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' };
+                console.log(data);
+            }
             //vm.modalInstance.close();
-            $('#myModal').modal('toggle');
+//            $('#myModal').modal('toggle');
         }
 
         var getData = function(){
@@ -86,7 +97,7 @@
         if(vm.id) {
             Team.get(vm.id, function(data) {
                 vm.team = data.data;
-                console.log(vm.team);
+//                console.log(vm.team);
             });
         }
 
@@ -99,11 +110,24 @@
                 description: vm.team.description,
                 member: team_member
             }
-            Team.update(qdata, function() {
+            /*Team.update(qdata, function() {
                 getData();
                 $state.go('dashboard.teams');
                 //location.reload();
-            });
+                console.log(data);
+            });*/
+
+            Team.update(qdata).then(updateSuccessFn, updateErrorFn);
+
+            function updateSuccessFn(data, status, header, config, response) {
+                $('#myModal').modal('toggle');
+            }
+
+            function updateErrorFn(data, status, header, config, response) {
+                vm.alerts =
+                        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' };
+                console.log(data);
+            }
         }
 
         function addRow () {

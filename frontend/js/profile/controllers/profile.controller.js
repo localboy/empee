@@ -51,11 +51,21 @@
         }
 
         function create() {
-            Profile.create(vm.user);
-            vm.users.push({
+            Profile.create(vm.user).then(successFn, errorFn);
+
+            function successFn(data, status, config, headers) {
+                 $('#myModal').modal('toggle');
+            }
+
+            function errorFn(data, status, config, headers) {
+            vm.alerts =
+                        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' };
+                console.log(data);
+            }
+           /* vm.users.push({
                     'username': vm.user.username,
                     'email': vm.user.email
-                });
+                });*/
         }
 
         function deleteUser(id, user) {
@@ -63,6 +73,16 @@
 
             var index = vm.users.indexOf(user);
             vm.users.splice(index, 1);
+        }
+
+        vm.add = function(){
+          var f = document.getElementById('file').files[0],
+              r = new FileReader();
+          r.onloadend = function(e){
+            var data = e.target.result;
+            //send you binary data via $http or $resource or do anything else with it
+          }
+          r.readAsBinaryString(f);
         }
 
         function update() {
@@ -86,16 +106,27 @@
                 hobby: vm.profile.account.hobby,
                 address: vm.profile.account.address,
                 bio: vm.profile.account.bio
+//                image: vm.image
             }
-            console.log(user);
+//            console.log(account);
             Profile.updateUser(user);
             Profile.updateAccount(account);
-            $('#myModal').modal('toggle');
+            $('#myModal').modal('close');
         }
 
         function updateUser() {
             console.log(vm.profile);
-            Profile.updateUser(vm.profile);
+            Profile.updateUser(vm.profile).then(putSuccessFn, putErrorFn);
+
+            function putSuccessFn(data, status, config, headers, response) {
+//                console.log('success user');
+                 $('#editModal').modal('toggle');
+            }
+
+            function putErrorFn(data, status, config, headers, response) {
+                vm.alerts =
+                        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' };
+            }
         }
 
         Profile.all(function(data) {

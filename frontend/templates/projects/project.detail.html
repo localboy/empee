@@ -12,10 +12,10 @@
                 <P>{{ vm.projects.description }}</P>
             </div>
             <div class="well">
-                <P>Start date : {{ vm.projects.start_date }}</P>
+                <P>Start date : {{ vm.projects.start_date | date:'MMMM dd, yyyy' }}</P>
             </div>
             <div class="well">
-                <P>End date : {{ vm.projects.end_date }}</P>
+                <P>End date : {{ vm.projects.end_date | date:'MMMM dd, yyyy' }}</P>
             </div>
             <div class="row">
                 <h4 class="lead">Member of the project</h4>

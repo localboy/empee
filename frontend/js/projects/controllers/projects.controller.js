@@ -39,11 +39,12 @@
             Project.create(qdata).then(createSuccessFn, createErrorFn);
 
             function createSuccessFn(data, status, header, config) {
-                console.log('Success');
+                $('#myModal').modal('toggle');
             }
 
             function createErrorFn(data, status, header, config) {
-                console.log('Error');
+                vm.alerts =
+                        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' };
                 console.log(data);
             }
         }

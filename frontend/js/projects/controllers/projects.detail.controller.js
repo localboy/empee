@@ -22,7 +22,17 @@
                 end_date: vm.projects.end_date,
                 team: vm.projects.selectedTeam.id
             }
-            Project.update(qdata);
+            Project.update(qdata).then(updateSuccessFn, updateErrorFn);
+
+            function updateSuccessFn(data, status, headers, config, response) {
+               $('#editModal').modal('toggle');
+            }
+
+            function updateErrorFn(data, status, headers, config, response) {
+                console.log(data);
+                vm.alerts =
+                        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' };
+            }
         }
 
         Team.all(function(data) {
@@ -32,7 +42,7 @@
         Project.get(vm.id, function(data) {
             vm.projects = data.data;
            vm.projects.selectedTeam = {id: vm.projects.team};
-            console.log(vm.projects.team);
+//            console.log(vm.projects.team);
             vm.projects.start_date = new Date(vm.projects.start_date);
             vm.projects.end_date = new Date(vm.projects.end_date);
 //            console.log(vm.projects);
