@@ -17,7 +17,8 @@
             'ui.bootstrap',
 //            'ng-bootstrap-datepicker',
              'ui.bootstrap.datetimepicker',
-            'ngAnimate'
+            'ngAnimate',
+            'empee.modal'
 
         ]);
 
@@ -35,6 +36,9 @@
 
     angular
         .module('empee.filter', []);
+
+    angular
+        .module('empee.modal', []);
 
     angular
         .module('empee')

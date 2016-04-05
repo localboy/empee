@@ -24,10 +24,10 @@
                 url: '/dashboard',
                 templateUrl: 'templates/dashboard/dashboard.html',
                 controllerAs: 'vm',
-                controller: 'DashboardController',
+                controller: 'DashboardController'/*,
                 onExit: function() {
                     console.log(document.getElementById( 'showLeftPush' ));
-                }
+                }*/
             })
 
             //State URL for Post

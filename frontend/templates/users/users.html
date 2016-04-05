@@ -4,6 +4,7 @@
             <i class="fa fa-plus"></i> Create another user
         </button>
     </a>
+
     <h3>User list</h3>
     <div class="row">
         <div ng-show="vm.users">
@@ -23,6 +24,11 @@
                         <td>{{ user.username }}</td>
                         <td>{{ user.email }}</td>
                         <td class="push-right">
+                            <!--<button type="button" class="btn btn-default" ng-click="vm.open(user)">Open me!</button>-->
+                            <!--<a ui-sref=".userDetail({ userID: user.id })">
+                                <button type="button" class="btn btn-default" ng-click="vm.open()">Open me!</button>
+                            </a>-->
+
                             <a ui-sref=".userDetail({ userID: user.id })">
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#viewModal">
                                     <i class="fa fa-eye"></i>
