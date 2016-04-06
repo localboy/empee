@@ -49,6 +49,9 @@
     function run($http) {
         $http.defaults.xsrfCookieName = 'csrftoken';
         $http.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+        $http.defaults.headers.common.Authorization = 'JWT ' + localStorage.getItem('empee.token');
+
     }
 
 })();

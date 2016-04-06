@@ -26,7 +26,9 @@
 
                 return function (data, status, headers, config, response, $state) {
                     localStorage.setItem('empee.token',data.data.token);
-                    $http.defaults.headers.common['Authorization'] = 'Bearer ' + data.data.token;
+                    $http.defaults.headers.common.Authorization = 'JWT ' + data.data.token;
+
+//                    console.log($http.defaults.headers.common.Authorization);
                     if (typeof callback !== 'undefined') {
                         callback();
                     }

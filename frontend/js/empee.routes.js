@@ -96,7 +96,7 @@
                 url: '/settings',
                 templateUrl: 'templates/users/user.settings.html',
                 controllerAs: 'vm',
-                controller: 'ProfileController'
+                controller: 'SettingController'
             })
 
 

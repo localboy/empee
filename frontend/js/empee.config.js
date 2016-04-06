@@ -6,9 +6,21 @@
         .value('empee.config', {
             baseUrl: 'http://127.0.0.1:8000'
         });
-        //.config(config);
 
-    //config.$inject = ['$rootScope'];
+
+    /*angular
+        .module('empee.config')
+        .config(config);
+
+    config.$inject = ['$httpProvider'];
+
+    function config($httpProvider){
+        var token = localStorage.getItem('empee.token');
+        console.log(token);
+        if (token) {
+            $httpProvider.defaults.headers.common.Authorization = 'Bearer ' + token;
+        }
+    }*/
 
     /*function config($rootScope) {
         $rootScope.$on('$viewContentLoading', function(event, viewConfig) {

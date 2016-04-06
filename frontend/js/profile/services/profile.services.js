@@ -18,7 +18,8 @@
             getAccount: getAccount,
             getUser: getUser,
             updateAccount: updateAccount,
-            updateUser: updateUser
+            updateUser: updateUser,
+            changePass: changePass
         };
 
         return Profile;
@@ -94,6 +95,10 @@
 
         function updateUser(user) {
             return $http.put(API + '/api/user/' + user.id + '/', user);
+        }
+
+        function changePass(user) {
+            return $http.post(API + '/api/change-password/', user);
         }
     }
 })();
