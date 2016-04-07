@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,6 +27,14 @@ SECRET_KEY = '3mv@oq1!)-&lvtfn*vz8-k+g39!*ah&t##m1ihp^n3i2&nr%*a'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = '01731736326' #my gmail password
+EMAIL_HOST_USER = 'jakir1124' #my gmail username
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # Application definition
@@ -44,6 +53,8 @@ INSTALLED_APPS = [
 
     # Third party app
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
     'corsheaders',
 ]
 
@@ -170,4 +181,24 @@ CORS_ALLOW_METHODS = (
     'DELETE',
     'OPTIONS'
 )
+
+JWT_AUTH = {
+
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=1800),
+
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
+
+
+# DJoserR Settings
+DJOSER = {
+    'DOMAIN': 'frontend.com',
+    'SITE_NAME': 'Frontend',
+    'SET_PASSWORD_RETYPE': True,
+    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': '#/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
+    'PASSWORD_VALIDATORS': [],
+    'SERIALIZERS': {},
+}
 

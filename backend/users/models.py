@@ -35,6 +35,9 @@ class Account(models.Model):
     def __str__(self):
         return self.user.username
 
+    def get_password(self):
+        return self.user.password
+
 
 class SocialInfo(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='account_social')
@@ -42,3 +45,9 @@ class SocialInfo(models.Model):
     twitter = models.CharField(max_length=50)
     skype = models.CharField(max_length=50)
     bitbucket = models.CharField(max_length=50)
+
+
+class Token(models.Model):
+    user = models.ForeignKey(User, related_name='token_user')
+    token = models.CharField(max_length=250)
+    expire_date = models.DateTimeField()

@@ -12,7 +12,9 @@
         var Authentication = {
             isAuthenticated: isAuthenticated,
             login: login,
-            logout: logout
+            logout: logout,
+            forgetPass: forgetPass,
+            resetPass: resetPass
         }
         return Authentication;
 
@@ -38,6 +40,7 @@
 
             function loginErrorFn (data, status, headers, config) {
                 console.error('Epic failure!');
+                return 'Invalid username or password';
             }
         }
 
@@ -47,6 +50,17 @@
 
         function isAuthenticated() {
             return localStorage.getItem('empee.token')!=null
+        }
+
+        function forgetPass(email) {
+            console.log(email);
+            $http.defaults.headers.common.Authorization = '';
+            return $http.post(API + '/api/forget-password/', {email:email});
+        }
+
+        function resetPass(reset) {
+            $http.defaults.headers.common.Authorization = '';
+            return $http.post(API + '/api/reset-password/', reset);
         }
     }
 })();

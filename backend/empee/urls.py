@@ -20,7 +20,7 @@ from django.contrib import admin
 from rest_framework import routers
 
 from .views import IndexView
-from users.views import AccountViewSet, LoginView, UserView, UserProfileView
+from users.views import AccountViewSet, LoginView, UserView, UserProfileView, ChangePassword, ForgetPassword, ResetPassword
 from projects.views import ProjectViewSet
 from teams.views import TeamViewSets, TemMemberViewSets
 from blog.views import PostViewSet, CommentViewSet, PostsViewSet
@@ -42,6 +42,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
     url(r'^api/login/$', LoginView.as_view(), name='login'),
+    url(r'^api/change-password/$', ChangePassword.as_view(), name='change_password'),
+    url(r'^api/forget-password/$', ForgetPassword.as_view(), name='forget_password'),
+    url(r'^api/reset-password/$', ResetPassword.as_view(), name='reset_password'),
     url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^auth/', include('djoser.urls')),
 ]

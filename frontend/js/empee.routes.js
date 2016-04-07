@@ -20,6 +20,18 @@
                 controllerAs: 'vm',
                 controller: 'LoginController'
             })
+            .state('forget', {
+                url: '/forget',
+                templateUrl: 'templates/forget.password.html',
+                controllerAs: 'vm',
+                controller: 'ForgetPasswordController'
+            })
+            .state('reset', {
+                url: '/reset/:token',
+                templateUrl: 'templates/reset.password.html',
+                controllerAs: 'vm',
+                controller: 'ResetPasswordController'
+            })
             .state('dashboard', {
                 url: '/dashboard',
                 templateUrl: 'templates/dashboard/dashboard.html',

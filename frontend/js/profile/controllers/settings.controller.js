@@ -5,9 +5,9 @@
         .module('empee.profile.controllers')
         .controller('SettingController', SettingController);
 
-    SettingController.$inject = ['Profile', '$timeout', '$state'];
+    SettingController.$inject = ['Profile', '$timeout', '$state', 'Authentication'];
 
-    function SettingController(Profile, $timeout, $state) {
+    function SettingController(Profile, $timeout, $state, Authentication) {
         var vm = this;
         vm.message = {}
         vm.changPassword = changPassword;
@@ -19,7 +19,9 @@
                 vm.message.success = 'Password change successful';
                 vm.user = {};
                 $timeout(function(){
+                Authentication.logout();
                     $state.go('login');
+                    console.log($state);
                 }, 2000);
             }
 
