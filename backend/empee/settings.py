@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     # Third party app
     'rest_framework',
     'rest_framework.authtoken',
-    'djoser',
     'corsheaders',
 ]
 

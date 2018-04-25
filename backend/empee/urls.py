@@ -47,5 +47,4 @@ urlpatterns = [
     url(r'^api/reset-password/$', ResetPassword.as_view(), name='reset_password'),
     url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^auth/', include('djoser.urls')),
 ]
